@@ -5,7 +5,7 @@ main.responsive
         .grid
             .s12
                 h5.center-align Everton Buzzi
-                p.center-align Hello, im a frontend developer, this webpage gonna to show you more about my job and the technologies im working with.
+                p.center-align Hello, im a frontend developer, this webpage show you more about my job and the technologies im working with.
             .s6
                 img.responsive.round(src="../assets/everton.jpg" alt="Guy in a island")
             .s6 
