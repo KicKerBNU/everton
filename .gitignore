@@ -12,6 +12,7 @@ package-lock.json
 .firebase
 dist
 dist-ssr
+assets
 *.local
 
 # Editor directories and files
