@@ -1,93 +1,112 @@
+import vuejs3 from "../assets/vuejs3.jpg";
+import beercss from "../assets/beercss.png";
+import firebase from "../assets/firebase.jpg";
+import quasar from "../assets/quasar.jpg";
+import materialize from "../assets/materialize.png";
+import git from "../assets/git_.jpg";
+import github from "../assets/github.jpg";
+import gitlab from "../assets/gitlab.png";
+import devtools from "../assets/devtools.jpg";
+import css3 from "../assets/css3.jpg"
+import html5 from "../assets/html5.jpg";
+import pug from "../assets/pug.png";
+import hotjar from "../assets/hotjar.png";
+import gauge from "../assets/gauge.png";
+import bootstrap from "../assets/bootstrap.jpg"
+import bootstrapVue from "../assets/bootstrap-vue.jpg";
+import codecept from "../assets/codecept.png"
+import vite from "../assets/vite.jpg";
+
 export default 
     [
         {
             name: "VueJs",
-            path: "./assets/vuejs3.jpg",
+            path: vuejs3,
             alt: "Vue logo image"
         },
         {
             name: "Beercss",
-            path: "./assets/beercss.png",
+            path: beercss,
             alt: "Beercss logo image"
         },
         {
             name: "Firebase",
-            path: "./assets/firebase.jpg",
+            path: firebase,
             alt: "Firebase logo image"
         },
         {
             name: "Quasar",
-            path: "./assets/quasar.jpg",
+            path: quasar,
             alt: "Quasar logo image"
         },
         {
             name: "Materialize",
-            path: "./assets/materialize.png",
+            path: materialize,
             alt: "Materialize logo image"
         },
         {
             name: "Git",
-            path: "./assets/git_.jpg",
+            path: git,
             alt: "Git logo image"
         },
         {
             name: "Github",
-            path: "./assets/github.jpg",
+            path: github,
             alt: "Github logo image"
         },
         {
             name: "Gitlab",
-            path: "./assets/gitlab.png",
+            path: gitlab,
             alt: "Gitlab logo image"
         },
         {
             name: "Chrome DevTools",
-            path: "./assets/devtools.jpg",
+            path: devtools,
             alt: "Chrome DevTools logo image"
         },
         {
             name: "Css3",
-            path: "./assets/css3.jpg",
+            path: css3,
             alt: "Css3 logo image"
         },
         {
             name: "Html5",
-            path: "./assets/html5.jpg",
+            path: html5,
             alt: "Html5 logo image"
         },
         {
             name: "Pug",
-            path: "./assets/pug.png",
+            path: pug,
             alt: "Pug logo image"
         },
         {
             name: "Hotjar",
-            path: "./assets/hotjar.png",
+            path: hotjar,
             alt: "Hotjar logo image"
         },
         {
             name: "Gauge",
-            path: "./assets/gauge.png",
+            path: gauge,
             alt: "Gauge logo image"
         },
         {
             name: "Bootstrap",
-            path: "./assets/bootstrap.jpg",
+            path: bootstrap,
             alt: "Bootstrap logo image"
         },
         {
             name: "Bootstrap Vue",
-            path: "./assets/bootstrap-vue.jpg",
+            path: bootstrapVue,
             alt: "Gauge logo image"
         },
         {
             name: "Codecept",
-            path: "./assets/codecept.png",
+            path: codecept,
             alt: "Beercss logo image"
         },
         {
             name: "Vite",
-            path: "./assets/vite.jpg",
+            path: vite,
             alt: "Vite logo image"
         }
     ]
