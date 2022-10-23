@@ -13,10 +13,10 @@ div.responsive
                             input(type="text" v-model="name")
                             label Your name
                     .s6
-                        div.field.label.border(:class="{'invalid': email}")
+                        div.field.label.border(:class="{'invalid': email === ''}")
                             input(type="email" v-model="email" @blur="validate(email)")
                             label Your e-mail
-                            span.error(v-show="email") Please enter valid email
+                            span.error(v-show="email === ''") Please enter valid email
                     .s12 
                         div.field.label.border
                             input(type="text" v-model="company")
@@ -26,7 +26,7 @@ div.responsive
                             textarea(v-model="message")
                             label Your message
                 div.absolute.right.bottom.margin
-                    button.round(@click="submit()") Submit
+                    button.round(@click="submitContactForm()") Submit
         .s2
         
 
@@ -43,13 +43,18 @@ const company = ref(null);
 const message = ref(null);
 const error = ref(null);
 function validate(value){
-    email.value = "-"
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)){
+        return value
+    }else{
+        return this.email = '';
+    }
+    
 }
 function formValidation(name, email, company, message){
-    console.log("return", name, email, company, message)
-    if(!name || !email || !company || message) return false;
+    if(!name || !email || !company || !message) return false;
+    else return true;
 }
-function submit(){
+function submitContactForm(){
     if(!formValidation(name.value, email.value, company.value, message.value)) return;
     firebase.writeMessage(name.value, email.value, company.value, message.value);
     
