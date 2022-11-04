@@ -4,10 +4,10 @@ main.responsive
     #introduction
         .grid
             .s12
-                h5.center-align Everton Buzzi
+                h1.center-align Everton Buzzi
                 p.center-align Hello, im a frontend developer, this webpage show you more about my job and the technologies im working with.
             .s6
-                img.responsive.round(src="../assets/everton.jpg" alt="Guy in a island")
+                img.responsive.round(src="../assets/everton.jpg" alt="Everton in Island of Alcatraz")
             .s6 
                 img.responsive.round(src="../assets/frontend.png" alt="Guy working on a computer")
         .large-space
@@ -71,10 +71,10 @@ main.responsive
                         li Bug Fixes
         .large-space
         h5.center-align Stack
-        div.grid
-            div(v-for="(stack, i) in stack" :key="i").s4
+        .grid
+            div(v-for="(stack, i) in stack" :key="i").s12.m6.l4
                 article.no-padding
-                    img.responsive.medium(:src="stack.path")
+                    img.responsive.medium(:src="stack.path" :alt="stack.alt")
                     div.absolute.bottom.left.right.padding.bottom-shadow.white-text
                         nav
                             h5 {{stack.name}}    
@@ -85,8 +85,16 @@ import stack from "./stack";
 ref(stack);
 </script>
 <style lang="scss">
+a.skip-main {
+    left:-999px;
+    position:absolute;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    z-index:-999;
+}
 $container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
-
 $gutter: 30px;
 $border-width: 4px;
 $dot-diameter: 8px;

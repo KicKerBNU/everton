@@ -1,4 +1,5 @@
 <template lang="pug">
+a.skip-main(href="#main") Skip to main content
 div.right-align.padding
   label.switch
     input(type="checkbox" v-model="isDark")
