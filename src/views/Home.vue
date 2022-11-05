@@ -1,6 +1,6 @@
 <template lang="pug">
 Nav
-main.responsive
+main.responsive#main
     #introduction
         .grid
             .s12
