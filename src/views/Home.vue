@@ -14,9 +14,19 @@ main.responsive#main
         h5.center-align Career Timeline
         article.timeline.center
             div.entry
+                img.small.logo.round(src="../assets/neobrain.png" alt="Neobrain Logo")
+                div.title
+                    h3 2023 - Present
+                    p Frontend Developer, Neobrain
+                    
+                div.body
+                    p HR
+                    ul
+                        li Development and upgrade the HR platform
+            div.entry
                 img.small.logo.round(src="../assets/masterlink.png" alt="Masterlink Logo")
                 div.title
-                    h3 2022 - Present
+                    h3 2022 - 2023
                     p Frontend Developer, Masterlink Business Innovation
                     
                 div.body
