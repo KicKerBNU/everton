@@ -4,10 +4,6 @@ div
     h1.center-align Under Construction        
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

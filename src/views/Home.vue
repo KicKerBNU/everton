@@ -90,31 +90,31 @@ main.responsive#main
                             h5 {{stack.name}}    
 </template>
 <script setup>
-import { ref } from "vue";
-import stack from "./stack";
+import { ref } from 'vue';
+import stack from './stack';
 ref(stack);
 </script>
 <style lang="scss">
 a.skip-main {
-    left:-999px;
-    position:absolute;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-    z-index:-999;
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
 }
 $container-shadow: 0.5rem 0.5rem 2rem 0 rgba(black, 0.2);
 $gutter: 30px;
 $border-width: 4px;
 $dot-diameter: 8px;
 .logo {
-    right: 20px;
-    top: -3px;
+  right: 20px;
+  top: -3px;
 }
 .timeline {
-  width:100%;
-  max-width:800px;
+  width: 100%;
+  max-width: 800px;
   padding: 100px 50px;
   position: relative;
   box-shadow: $container-shadow;
@@ -122,16 +122,16 @@ $dot-diameter: 8px;
     content: '';
     position: absolute;
     top: 0px;
-    left:calc(33% + 15px); //$gutter/2
+    left: calc(33% + 15px); //$gutter/2
     bottom: 0px;
     width: $border-width;
     background: #ddd;
   }
   &:after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
-  } 
+  }
 }
 
 .entry {
@@ -139,7 +139,7 @@ $dot-diameter: 8px;
   text-align: left;
   position: relative;
   .title {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
     float: left;
     width: 33%;
     padding-right: $gutter;
@@ -148,8 +148,8 @@ $dot-diameter: 8px;
     &:before {
       content: '';
       position: absolute;
-      background-color:#fff;
-      border-radius:100%;
+      background-color: #fff;
+      border-radius: 100%;
       top: 15%;
       right: -$dot-diameter;
       z-index: 99;
@@ -176,15 +176,14 @@ $dot-diameter: 8px;
       }
     }
     ul {
-      color:#aaa;
+      color: #aaa;
       padding-left: 0;
       list-style-type: none;
       li:before {
-        content: "–";
-        margin-right: .5em;
+        content: '–';
+        margin-right: 0.5em;
       }
     }
   }
 }
-
 </style>

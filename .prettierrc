@@ -1,0 +1,16 @@
+{
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "packageManager": "yarn",
+  "endOfLine": "lf",
+  "trailingComma": "none",
+  "arrowParens": "avoid",
+  "overrides": [
+    {
+      "files": "*json",
+      "options": {
+        "parser": "json-stringify"
+      }
+    }
+  ]
+}

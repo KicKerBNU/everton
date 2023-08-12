@@ -35,35 +35,35 @@ div.responsive
 
 <script setup>
 import { nextTick, ref } from 'vue';
-import firebase from "../firebase/firebase";
+import firebase from '../firebase/firebase';
 
 const name = ref(null);
 const email = ref(null);
 const company = ref(null);
 const message = ref(null);
 const error = ref(null);
-function validate(value){
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)){
-        return value
-    }else{
-        return this.email = '';
-    }
-    
+function validate(value) {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+    return value;
+  } else {
+    return (this.email = '');
+  }
 }
-function formValidation(name, email, company, message){
-    if(!name || !email || !company || !message) return false;
-    else return true;
+function formValidation(name, email, company, message) {
+  if (!name || !email || !company || !message) return false;
+  else return true;
 }
-function submitContactForm(){
-    if(!formValidation(name.value, email.value, company.value, message.value)) return;
-    firebase.writeMessage(name.value, email.value, company.value, message.value);
-    
-    name.value = null;
-    email.value = null;
-    company.value = null;
-    message.value = null;
-    nextTick( () => {
-        ui();
-    })
+function submitContactForm() {
+  if (!formValidation(name.value, email.value, company.value, message.value))
+    return;
+  firebase.writeMessage(name.value, email.value, company.value, message.value);
+
+  name.value = null;
+  email.value = null;
+  company.value = null;
+  message.value = null;
+  nextTick(() => {
+    ui();
+  });
 }
 </script>
