@@ -7,9 +7,9 @@ const path = computed(() => route.path);
 
 <template>
   <nav id="nav" class="m l left">
-    <a>
+    <router-link to="/" :class="{ active: path == '/' }">
       <img class="tiny" src="../assets/eb.jpg" alt="EB icon" />
-    </a>
+    </router-link>
     <router-link to="/" :class="{ active: path == '/' }">
       <i>home</i>
       <span>Home</span>
@@ -22,9 +22,9 @@ const path = computed(() => route.path);
       <i>local_gas_station</i>
       <span>Gas Control</span>
     </router-link>
-    <router-link to="/invest" :class="{ active: path == '/invest' }">
-      <i>savings</i>
-      <span>Real State</span>
+    <router-link to="/docs" :class="{ active: path == '/docs' }">
+      <i>description</i>
+      <span>Docs</span>
     </router-link>
   </nav>
 </template>

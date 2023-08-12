@@ -25,5 +25,7 @@ function writeMessage(name, email, company, message) {
 }
 
 export default {
-  writeMessage
+  writeMessage,
+  getAuth,
+  onAuthStateChanged
 };

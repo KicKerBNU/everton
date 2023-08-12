@@ -1,5 +1,4 @@
 <template lang="pug">
-Nav
 div
     h1.center-align Under Construction
 </template>

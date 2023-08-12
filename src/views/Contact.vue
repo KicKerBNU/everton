@@ -1,5 +1,4 @@
 <template lang="pug">
-Nav 
 div.responsive 
     .grid
         .s2

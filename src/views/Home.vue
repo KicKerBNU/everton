@@ -1,5 +1,4 @@
 <template lang="pug">
-Nav
 main.responsive#main
     #introduction
         .grid
@@ -7,7 +6,7 @@ main.responsive#main
                 h1.center-align Everton Buzzi
                 p.center-align Hello, im a frontend developer, this webpage show you more about my job and the technologies im working with.
             .s6
-                img.responsive.round(src="../assets/everton.jpg" alt="Everton in Island of Alcatraz")
+                img.responsive.round(src="../assets/everton_amsterdam.jpg" alt="Everton in Amsterdam")
             .s6 
                 img.responsive.round(src="../assets/frontend.png" alt="Guy working on a computer")
         .large-space

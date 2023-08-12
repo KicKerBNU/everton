@@ -1,4 +1,5 @@
 <template lang="pug">
+Nav
 a.skip-main(href="#main") Skip to main content
 div.right-align.padding
   label.switch
@@ -8,6 +9,7 @@ router-view
 </template>
 
 <script setup>
+import Nav from './components/Nav.vue';
 import { ref } from 'vue';
 import { watch } from 'vue';
 const isDark = ref();
