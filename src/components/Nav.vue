@@ -22,7 +22,7 @@ const path = computed(() => route.path);
       <i>local_gas_station</i>
       <span>Gas Control</span>
     </router-link>
-    <router-link to="/docs" :class="{ active: path == '/docs' }">
+    <router-link to="/doc" :class="{ active: path == '/doc' }">
       <i>description</i>
       <span>Docs</span>
     </router-link>

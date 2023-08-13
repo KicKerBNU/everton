@@ -1,5 +1,5 @@
 <template lang="pug">
-main.responsive#main
+#home.responsive
     #introduction
         .grid
             .s12

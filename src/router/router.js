@@ -3,7 +3,6 @@ import Contact from '../views/Contact.vue';
 import Gas from '../views/Gas.vue';
 import Documentation from '../views/Documentation.vue';
 import Login from '../views/Login.vue';
-import Register from '../views/Register.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 export default createRouter({
@@ -14,7 +13,6 @@ export default createRouter({
     { path: '/contact', name: 'Contact', component: Contact },
     { path: '/gas', name: 'Gas', component: Gas },
     { path: '/doc', name: 'Documentation', component: Documentation },
-    { path: '/login', name: 'Login', component: Login },
-    { path: '/register', name: 'Register', component: Register }
+    { path: '/login', name: 'Login', component: Login }
   ]
 });

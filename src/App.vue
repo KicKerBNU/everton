@@ -1,18 +1,22 @@
 <template lang="pug">
 Nav
-a.skip-main(href="#main") Skip to main content
-div.right-align.padding
-  label.switch
-    input(type="checkbox" v-model="isDark")
-    span.small-padding Light/Dark
-router-view
+main.responsive#main
+  nav.right-align
+    a.skip-main(href="#main") Skip to main content
+    a Logout
+      i logout
+    div.right-align.padding
+      label.switch
+        input(type="checkbox" v-model="isDark")
+        span.small-padding Light/Dark
+  router-view
 </template>
 
 <script setup>
 import Nav from './components/Nav.vue';
 import { ref } from 'vue';
 import { watch } from 'vue';
-const isDark = ref();
+const isDark = ref(false);
 watch(
   () => isDark,
   newValue => {

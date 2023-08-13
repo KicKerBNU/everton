@@ -1,5 +1,5 @@
 <template lang="pug">
-div.responsive 
+#contact.responsive 
     .grid
         .s2
         .s8

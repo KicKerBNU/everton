@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+#gas.responsive
     h1.center-align Under Construction
 </template>
 
