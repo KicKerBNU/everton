@@ -9,9 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "beercss": "^2.2.9",
+    "beercss": "^3.3.5",
     "firebase": "^9.9.2",
     "pug": "^3.0.2",
+    "sass": "^1.67.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"
   },
