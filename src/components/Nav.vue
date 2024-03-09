@@ -18,14 +18,14 @@ const path = computed(() => route.path);
       <i>contacts</i>
       <span>Contact</span>
     </router-link>
-    <router-link to="/gas" :class="{ active: path == '/gas' }">
-      <i>local_gas_station</i>
-      <span>Gas Control</span>
+    <router-link to="/maps" :class="{ active: path == '/maps' }">
+      <i>map</i>
+      <span>Maps</span>
     </router-link>
-    <router-link to="/doc" :class="{ active: path == '/doc' }">
+    <!-- <router-link to="/doc" :class="{ active: path == '/doc' }">
       <i>description</i>
       <span>Docs</span>
-    </router-link>
+    </router-link> -->
   </nav>
 </template>
 <script></script>
