@@ -15,3 +15,7 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 - firebase login
 - firebase use everton
 - firebase deploy
+
+## Run Firebase functions locally
+
+firebase emulators:start --only functions

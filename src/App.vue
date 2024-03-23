@@ -3,8 +3,6 @@ Nav
 main.responsive#main
   nav.right-align
     a.skip-main(href="#main") Skip to main content
-    a Logout
-      i logout
     div.right-align.padding
       label.switch
         input(type="checkbox" v-model="isDark")
