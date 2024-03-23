@@ -77,7 +77,6 @@
                         li Customer Success
                         li Unit Testing
                         li Software Documentation
-                        li Bug Fixes
         .large-space
         h5.center-align Stack
         .grid
