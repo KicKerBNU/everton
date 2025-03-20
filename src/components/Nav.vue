@@ -14,6 +14,10 @@ const path = computed(() => route.path);
       <i>home</i>
       <span>Home</span>
     </router-link>
+    <router-link to="/projects" :class="{ active: path == '/projects' }">
+      <i>work</i>
+      <span>Projects</span>
+    </router-link>
     <router-link to="/contact" :class="{ active: path == '/contact' }">
       <i>contacts</i>
       <span>Contact</span>
