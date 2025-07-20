@@ -13,7 +13,7 @@
           <span class="material-icons text-4xl text-blue-600">description</span>
         </div>
         <h3 class="text-2xl font-semibold text-gray-900 mb-4">Documentation Access</h3>
-        <p class="text-gray-600 mb-6">You are currently logged in and have access to the documentation area.</p>
+        <p class="text-gray-600 mb-6">Welcome to the documentation area. Here you can find technical resources and guides.</p>
         
         <!-- Documentation Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
@@ -36,10 +36,10 @@
           </div>
         </div>
         
-        <!-- User Info -->
+        <!-- Additional Resources -->
         <div class="mt-8 p-4 bg-blue-50 rounded-lg">
           <p class="text-blue-800">
-            <span class="font-medium">Logged in as:</span> {{ user?.email || 'User' }}
+            <span class="font-medium">Available Resources:</span> Technical documentation, setup guides, and best practices
           </p>
         </div>
       </div>
@@ -48,19 +48,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-const user = ref(null);
-const auth = getAuth();
-
-onAuthStateChanged(auth, currentUser => {
-  user.value = currentUser;
-  if (!user.value) {
-    router.push('/login');
-  }
-});
+// Documentation component - no authentication required
 </script>
+
 <style></style>

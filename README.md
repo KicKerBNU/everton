@@ -1,4 +1,4 @@
-# Personal website project using Vue3 + Vite + Tailwind + Firebase
+# Personal website project using Vue3 + Vite + Tailwind + Netlify
 
 # Vue 3 + Vite
 
@@ -8,14 +8,23 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
-## Deploy - Firebase
+## Development
 
-- install firebase cli ( https://firebase.google.com/docs/cli#macos )
-- npm run build
-- firebase login
-- firebase use everton
-- firebase deploy
+```bash
+yarn install
+yarn dev
+```
 
-## Run Firebase functions locally
+## Deploy - Netlify
+1. Deploy is automatic when pushing to GitHub master branch
 
-firebase emulators:start --only functions
+```bash
+# Install Netlify CLI
+npm install -g netlify-cli
+
+# Build the project
+yarn build
+
+# Deploy to Netlify
+netlify deploy --prod --dir=dist
+```

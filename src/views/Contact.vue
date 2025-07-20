@@ -6,12 +6,26 @@
     </div>
     
     <div class="bg-white rounded-lg shadow-lg p-8">
-      <form @submit.prevent="submitContactForm" class="space-y-6">
+      <form 
+        name="contact" 
+        method="POST" 
+        data-netlify="true" 
+        data-netlify-honeypot="bot-field"
+        @submit.prevent="submitContactForm" 
+        class="space-y-6"
+      >
+        <!-- Netlify form handling -->
+        <input type="hidden" name="form-name" value="contact" />
+        <div class="hidden">
+          <input name="bot-field" />
+        </div>
+        
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="relative">
             <input 
               type="text" 
               v-model="name" 
+              name="name"
               id="name"
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors peer"
               placeholder=" "
@@ -29,6 +43,7 @@
             <input 
               type="email" 
               v-model="email" 
+              name="email"
               id="email"
               @blur="validate(email)" 
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors peer"
@@ -51,6 +66,7 @@
           <input 
             type="text" 
             v-model="company" 
+            name="company"
             id="company"
             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors peer"
             placeholder=" "
@@ -67,6 +83,7 @@
         <div class="relative">
           <textarea 
             v-model="message" 
+            name="message"
             id="message"
             rows="5"
             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors peer resize-none"
@@ -84,10 +101,16 @@
         <div class="flex justify-end">
           <button 
             type="submit"
-            class="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors font-medium"
+            :disabled="isSubmitting"
+            class="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Send Message
+            {{ isSubmitting ? 'Sending...' : 'Send Message' }}
           </button>
+        </div>
+        
+        <!-- Success/Error messages -->
+        <div v-if="submitStatus" class="mt-4 p-4 rounded-lg" :class="submitStatus.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'">
+          {{ submitStatus.message }}
         </div>
       </form>
     </div>
@@ -96,13 +119,14 @@
 
 <script setup>
 import { nextTick, ref } from 'vue';
-import firebase from '../firebase/firebase';
 
 const name = ref('');
 const email = ref('');
 const company = ref('');
 const message = ref('');
 const emailError = ref('');
+const isSubmitting = ref(false);
+const submitStatus = ref(null);
 
 function validate(value) {
   if (!value) {
@@ -122,22 +146,53 @@ function formValidation(name, email, company, message) {
   return validate(email);
 }
 
-function submitContactForm() {
+async function submitContactForm() {
   if (!formValidation(name.value, email.value, company.value, message.value)) {
     return;
   }
   
-  firebase.writeMessage(name.value, email.value, company.value, message.value);
-
-  // Reset form
-  name.value = '';
-  email.value = '';
-  company.value = '';
-  message.value = '';
-  emailError.value = '';
+  isSubmitting.value = true;
+  submitStatus.value = null;
   
-  nextTick(() => {
-    // You can add success notification here
-  });
+  try {
+    // Create form data for Netlify
+    const formData = new FormData();
+    formData.append('form-name', 'contact');
+    formData.append('name', name.value);
+    formData.append('email', email.value);
+    formData.append('company', company.value);
+    formData.append('message', message.value);
+    
+    // Submit to Netlify
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    });
+    
+    if (response.ok) {
+      submitStatus.value = {
+        type: 'success',
+        message: 'Thank you for your message! I\'ll get back to you soon.'
+      };
+      
+      // Reset form
+      name.value = '';
+      email.value = '';
+      company.value = '';
+      message.value = '';
+      emailError.value = '';
+    } else {
+      throw new Error('Failed to submit form');
+    }
+  } catch (error) {
+    console.error('Form submission error:', error);
+    submitStatus.value = {
+      type: 'error',
+      message: 'Sorry, there was an error sending your message. Please try again or contact me directly.'
+    };
+  } finally {
+    isSubmitting.value = false;
+  }
 }
 </script>
