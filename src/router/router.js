@@ -3,6 +3,7 @@ import Contact from '../views/Contact.vue';
 import Maps from '../views/Maps.vue';
 import Documentation from '../views/Documentation.vue';
 import Projects from '../views/Projects.vue';
+import Books from '../views/Books.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
@@ -11,7 +12,8 @@ const routes = [
   { path: '/contact', name: 'Contact', component: Contact },
   { path: '/maps', name: 'Maps', component: Maps },
   { path: '/doc', name: 'Documentation', component: Documentation },
-  { path: '/projects', name: 'Projects', component: Projects }
+  { path: '/projects', name: 'Projects', component: Projects },
+  { path: '/books', name: 'Books', component: Books }
 ];
 
 const router = createRouter({
