@@ -1,19 +1,52 @@
 <script setup>
 import { useRoute } from 'vue-router';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
 const route = useRoute();
 const path = computed(() => route.path);
+const isMobileMenuOpen = ref(false);
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
+
+const closeMobileMenu = () => {
+  isMobileMenuOpen.value = false;
+};
 </script>
 
 <template>
-  <nav id="nav" class="fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 flex flex-col">
+  <!-- Mobile Hamburger Button -->
+  <button 
+    @click="toggleMobileMenu"
+    class="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-lg hover:bg-gray-50 transition-colors"
+    :class="{ 'bg-blue-50': isMobileMenuOpen }"
+  >
+    <span class="material-icons text-gray-700">
+      {{ isMobileMenuOpen ? 'close' : 'menu' }}
+    </span>
+  </button>
+
+  <!-- Mobile Overlay -->
+  <div 
+    v-if="isMobileMenuOpen" 
+    @click="closeMobileMenu"
+    class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+  ></div>
+
+  <!-- Navigation Sidebar -->
+  <nav 
+    id="nav" 
+    class="fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 flex flex-col transform transition-transform duration-300 ease-in-out lg:translate-x-0"
+    :class="isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'"
+  >
     <!-- Profile Section -->
     <div class="p-6 border-b border-gray-200">
       <router-link 
         to="/" 
         class="flex items-center space-x-3 group"
         :class="{ 'text-blue-600': path === '/' }"
+        @click="closeMobileMenu"
       >
         <img 
           class="w-12 h-12 rounded-full ring-2 ring-gray-200 group-hover:ring-blue-300 transition-all duration-200" 
@@ -37,6 +70,7 @@ const path = computed(() => route.path);
             'text-gray-700 hover:bg-gray-50 hover:text-gray-900': path !== '/'
           }" 
           class="flex items-center px-4 py-3 rounded-lg transition-all duration-200 group"
+          @click="closeMobileMenu"
         >
           <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">home</span>
           <span class="font-medium">Home</span>
@@ -49,6 +83,7 @@ const path = computed(() => route.path);
             'text-gray-700 hover:bg-gray-50 hover:text-gray-900': path !== '/projects'
           }" 
           class="flex items-center px-4 py-3 rounded-lg transition-all duration-200 group"
+          @click="closeMobileMenu"
         >
           <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">work</span>
           <span class="font-medium">Projects</span>
@@ -61,6 +96,7 @@ const path = computed(() => route.path);
             'text-gray-700 hover:bg-gray-50 hover:text-gray-900': path !== '/contact'
           }" 
           class="flex items-center px-4 py-3 rounded-lg transition-all duration-200 group"
+          @click="closeMobileMenu"
         >
           <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">contact_mail</span>
           <span class="font-medium">Contact</span>
@@ -73,6 +109,7 @@ const path = computed(() => route.path);
             'text-gray-700 hover:bg-gray-50 hover:text-gray-900': path !== '/maps'
           }" 
           class="flex items-center px-4 py-3 rounded-lg transition-all duration-200 group"
+          @click="closeMobileMenu"
         >
           <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">map</span>
           <span class="font-medium">Maps</span>
