@@ -1,4 +1,4 @@
-# Personal website project using Vue3 + Vite + Beercss + Firebase
+# Personal website project using Vue3 + Vite + Tailwind + Firebase
 
 # Vue 3 + Vite
 

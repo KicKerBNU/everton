@@ -1,41 +1,53 @@
-<template lang="pug">
-#maps.responsive
-  .large-space
-  .center
-    h3 Visited Countries Map
-    p.medium-space Below are some countries I've visited marked on the map.
-  
-  .card.elevate.round(v-if="!mapError")
-    GoogleMap#map(
-      :api-key="googleApiKey"
-      style="width: 100%; height: 600px; border-radius: var(--round)"
-      :center="center"
-      :zoom="2.5"
-      @ready="onMapReady"
-      @error="onMapError"
-    )
-      MarkerCluster
-        Marker(
-          v-for="(location, i) in locations"
-          :key="i"
-          :options="{ position: location }"
-        )
-  
-  .card.elevate.round.error(v-else)
-    .medium-padding
-      h5 Error Loading Map
-      p {{ mapError }}
-      p.medium-space API Key: {{ googleApiKey }}
-      button.primary(@click="reloadPage") Reload Page
-  
-  .large-space
-  .grid
-    .s12.m6.l4(v-for="(location, i) in locationDetails" :key="i")
-      article.secondary-container.round.small-elevate
-        .medium-padding
-          h5 {{ location.name }}
-          p {{ location.description }}
-          .small-space
+<template>
+  <div id="maps" class="max-w-7xl mx-auto px-4">
+    <div class="mb-12"></div>
+    <div class="text-center">
+      <h3>Visited Countries Map</h3>
+      <p class="mb-6">Below are some countries I've visited marked on the map.</p>
+    </div>
+    
+    <div class="bg-white rounded-lg shadow-lg" v-if="!mapError">
+      <GoogleMap
+        id="map"
+        :api-key="googleApiKey"
+        style="width: 100%; height: 600px; border-radius: 0.5rem"
+        :center="center"
+        :zoom="2.5"
+        @ready="onMapReady"
+        @error="onMapError"
+      >
+        <MarkerCluster>
+          <Marker
+            v-for="(location, i) in locations"
+            :key="i"
+            :options="{ position: location }"
+          />
+        </MarkerCluster>
+      </GoogleMap>
+    </div>
+    
+    <div class="bg-white rounded-lg shadow-lg bg-red-50" v-else>
+      <div class="p-4">
+        <h5>Error Loading Map</h5>
+        <p>{{ mapError }}</p>
+        <p class="mb-6">API Key: {{ googleApiKey }}</p>
+        <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" @click="reloadPage">Reload Page</button>
+      </div>
+    </div>
+    
+    <div class="mb-12"></div>
+    <div class="grid grid-cols-12 gap-4">
+      <div class="col-span-12 md:col-span-6 lg:col-span-4" v-for="(location, i) in locationDetails" :key="i">
+        <article class="bg-gray-50 border border-gray-200 rounded-lg shadow-md">
+          <div class="p-4">
+            <h5>{{ location.name }}</h5>
+            <p>{{ location.description }}</p>
+            <div class="mb-2"></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -114,12 +126,4 @@ const locationDetails = [
 ];
 </script>
 
-<style lang="scss" scoped>
-#map {
-  border-radius: var(--round);
-}
 
-.error {
-  background-color: #ffebee;
-}
-</style>
