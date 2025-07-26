@@ -34,7 +34,7 @@
           :key="`non-brazil-${index}`"
           :options="getMarkerOptions(brazilianLocations.length + index, location)"
           :visible="activeMarkerIndex !== (brazilianLocations.length + index)"
-        />
+          />
         
         <!-- Brazil cluster marker - show when zoomed out -->
         <Marker
@@ -63,7 +63,7 @@
             class="bg-gray-50 border border-gray-200 rounded-lg shadow-md h-full cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-blue-300 pointer-events-auto"
             @click="onCountryCardClick(countryIndex)"
           >
-            <div class="p-4 lg:p-6">
+          <div class="p-4 lg:p-6">
               <h5 class="text-base lg:text-lg font-semibold text-gray-900 mb-2">{{ country.name }}</h5>
               <p class="text-sm lg:text-base text-gray-600 mb-3">{{ country.description }}</p>
               <div class="flex items-center justify-between">
@@ -106,9 +106,9 @@
             <div class="p-4 lg:p-6">
               <h5 class="text-base lg:text-lg font-semibold text-gray-900 mb-2">{{ city.name }}</h5>
               <p class="text-sm lg:text-base text-gray-600">{{ city.description }}</p>
-            </div>
-          </article>
-        </div>
+          </div>
+        </article>
+      </div>
       </template>
     </div>
   </div>

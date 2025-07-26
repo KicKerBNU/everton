@@ -16,10 +16,10 @@
         <div 
           v-for="book in books" 
           :key="book.id"
-          class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
+          class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
         >
           <!-- Book Cover -->
-          <div class="h-80 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center overflow-hidden">
+          <div class="w-[286px] h-80 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center overflow-hidden mx-auto">
             <img 
               v-if="book.pictureUrl" 
               :src="book.pictureUrl" 
@@ -33,25 +33,30 @@
           </div>
           
           <!-- Book Details -->
-          <div class="p-6">
-            <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">{{ book.name }}</h3>
-            <p class="text-sm text-gray-600 mb-3">by {{ book.author }}</p>
+          <div class="p-6 flex flex-col flex-grow">
+            <!-- Title and Author Section -->
+            <div class="flex-grow">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2 min-h-[3.5rem]">{{ book.name }}</h3>
+              <p class="text-sm text-gray-600 mb-4">by {{ book.author }}</p>
+            </div>
             
-            <!-- Reading Status -->
-            <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <span 
-                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
-                  :class="getStatusClass(book.finished)"
-                >
-                  <span class="w-2 h-2 rounded-full mr-1.5" :class="getStatusDotClass(book.finished)"></span>
-                  {{ getStatusText(book.finished) }}
-                </span>
-              </div>
-              
-              <!-- Finish Date -->
-              <div v-if="book.finished !== 'Reading'" class="text-xs text-gray-500">
-                {{ formatDate(book.finished) }}
+            <!-- Status and Date Section - Fixed at bottom -->
+            <div class="mt-auto">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <span 
+                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
+                    :class="getStatusClass(book.finished)"
+                  >
+                    <span class="w-2 h-2 rounded-full mr-1.5" :class="getStatusDotClass(book.finished)"></span>
+                    {{ getStatusText(book.finished) }}
+                  </span>
+                </div>
+                
+                <!-- Finish Date -->
+                <div v-if="book.finished !== 'Reading'" class="text-xs text-gray-500">
+                  {{ formatDate(book.finished) }}
+                </div>
               </div>
             </div>
           </div>
