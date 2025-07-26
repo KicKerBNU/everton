@@ -127,6 +127,19 @@ const closeMobileMenu = () => {
           <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">book</span>
           <span class="font-medium">Books</span>
         </router-link>
+        
+        <router-link 
+          to="/restaurants" 
+          :class="{ 
+            'bg-blue-50 text-blue-700 border-r-2 border-blue-600': path === '/restaurants',
+            'text-gray-700 hover:bg-gray-50 hover:text-gray-900': path !== '/restaurants'
+          }" 
+          class="flex items-center px-4 py-3 rounded-lg transition-all duration-200 group"
+          @click="closeMobileMenu"
+        >
+          <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">restaurant</span>
+          <span class="font-medium">Restaurants</span>
+        </router-link>
       </div>
     </div>
     
