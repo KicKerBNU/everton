@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize-images": "node optimize-images.js"
   },
   "dependencies": {
     "sass": "^1.67.0",
@@ -15,11 +16,13 @@
     "vue3-google-map": "^0.20.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.0.9",
     "@vitejs/plugin-vue": "^3.0.3",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
-    "@tailwindcss/vite": "^4.0.9",
-    "vite": "^6.1.0",
-    "tailwindcss": "^4.0.0"
+    "sharp": "^0.34.3",
+    "tailwindcss": "^4.0.0",
+    "terser": "^5.43.1",
+    "vite": "^6.1.0"
   }
 }
