@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         <div 
-          v-for="book in books" 
+          v-for="book in sortedBooks" 
           :key="book.id"
           class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
         >
@@ -94,7 +94,7 @@ const books = [
     id: 1,
     name: "Nada mais será como antes",
     author: "Miguel Nicolelis",
-    finished: "Reading",
+    finished: "08/20/2025",
     pictureUrl: "book-nadaseracomoantes.jpg"
   },
   {
@@ -159,6 +159,13 @@ const books = [
     author: "Ray Dalio",
     finished: "01/10/2024",
     pictureUrl: "book-principles.jpg"
+  },
+  {
+    id: 11,
+    name: "Javier Milei Viva a liberdade, carajo",
+    author: "Javier Milei",
+    finished: "Reading",
+    pictureUrl: "javiermilei.jpg"
   }
 ];
 
@@ -166,6 +173,18 @@ const books = [
 const totalBooks = computed(() => books.length);
 const finishedBooks = computed(() => books.filter(book => book.finished !== 'Reading').length);
 const currentlyReading = computed(() => books.filter(book => book.finished === 'Reading').length);
+
+// Sort books to show currently reading first
+const sortedBooks = computed(() => {
+  return [...books].sort((a, b) => {
+    // If a is currently reading and b is not, a comes first
+    if (a.finished === 'Reading' && b.finished !== 'Reading') return -1;
+    // If b is currently reading and a is not, b comes first
+    if (b.finished === 'Reading' && a.finished !== 'Reading') return 1;
+    // If both are reading or both are finished, maintain original order
+    return 0;
+  });
+});
 
 // Helper functions
 const getStatusClass = (status) => {
