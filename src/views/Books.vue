@@ -169,7 +169,7 @@ const books = [
   },
   {
     id: 12,
-    name: "Marie Kondo - The Life-Changing Magic of Tidying Up",
+    name: "The Life-Changing Magic of Tidying Up",
     author: "Marie Kondo",
     finished: "Reading",
     pictureUrl: "book-mariekondo.jpg"
