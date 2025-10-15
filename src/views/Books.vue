@@ -164,8 +164,15 @@ const books = [
     id: 11,
     name: "Javier Milei Viva a liberdade, carajo",
     author: "Javier Milei",
-    finished: "Reading",
+    finished: "01/10/2025",
     pictureUrl: "javiermilei.jpg"
+  },
+  {
+    id: 12,
+    name: "Marie Kondo - The Life-Changing Magic of Tidying Up",
+    author: "Marie Kondo",
+    finished: "Reading",
+    pictureUrl: "book-mariekondo.jpg"
   }
 ];
 
