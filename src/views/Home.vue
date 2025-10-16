@@ -4,7 +4,7 @@
       <!-- Hero Section -->
       <div class="text-center mb-8 lg:mb-12">
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">Everton Buzzi</h1>
-        <p class="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">Hello, I'm a frontend developer. This webpage shows you more about my work and the technologies I'm working with.</p>
+        <p class="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">I'm a frontend developer, and I'd like to share more about my work with you. This webpage provides an overview of my projects, the technologies I specialize in, and a bit about my professional and personal journey.</p>
       </div>
       
       <!-- Images Section -->

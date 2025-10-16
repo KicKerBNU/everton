@@ -153,7 +153,13 @@ const countryGroups = [
     description: 'Beautiful European country with rich history, amazing food, and stunning coastal landscapes.',
     cities: [
       { name: 'Lisbon', description: 'Beautiful coastal capital city with historic neighborhoods and amazing food.' },
-      { name: 'Porto', description: 'Historic port city known for its wine production, beautiful architecture, and charming riverside district.' }
+      { name: 'Porto', description: 'Historic port city known for its wine production, beautiful architecture, and charming riverside district.' },
+      { name: 'Nazaré', description: 'Small town known for its beautiful beaches and stunning cliffs.' },
+      { name: 'Peniche', description: 'Small town known for its beautiful beaches and surfing.' },
+      { name: 'Obidos', description: 'Village surrounded by walls with a beautiful castle.' },
+      { name: 'Setúbal', description: 'Known by one of the most beautiful beaches in Portugal.'},
+      { name: 'Caiscais', description: 'Beautiful coastal town near Lisbon.'},
+      { name: 'Sintra', description: 'The town of palaces and castles of Portugal.'}
     ]
   },
   {
@@ -253,6 +259,12 @@ const brazilianLocations = [
 const nonBrazilianLocations = [
   { lat: 38.73306655883789, lng: -9.144887924194336 }, // Lisbon, Portugal
   { lat: 41.1579, lng: -8.6291 }, // Porto, Portugal
+  { lat: 39.6016, lng: -9.0678 }, // Nazaré, Portugal
+  { lat: 39.3603, lng: -9.3876 }, // Peniche, Portugal
+  { lat: 39.3572, lng: -9.1579 }, // Obidos, Portugal
+  { lat: 38.5167, lng: -8.8167 }, // Setúbal, Portugal
+  { lat: 38.6961, lng: -9.4304 }, // Cascais, Portugal
+  { lat: 38.7912, lng: -9.3803 }, // Sintra, Portugal
   { lat: -34.95600201514804, lng: -54.93948923668498 }, // Punta del Este, Uruguay
   { lat: 51.50758960843541, lng: -0.1180870493591784 }, // London, UK
   { lat: 52.37937372626596, lng: 4.900524962511013 }, // Amsterdam, Netherlands
