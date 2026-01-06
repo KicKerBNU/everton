@@ -171,8 +171,15 @@ const books = [
     id: 12,
     name: "The Life-Changing Magic of Tidying Up",
     author: "Marie Kondo",
-    finished: "Reading",
+    finished: "12/20/2025",
     pictureUrl: "book-mariekondo.jpg"
+  },
+  {
+    id: 13,
+    name: "Six Lessons",
+    author: "Ludwig von Mises",
+    finished: "Reading",
+    pictureUrl: "book-six.jpg"
   }
 ];
 
