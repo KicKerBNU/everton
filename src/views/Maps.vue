@@ -205,6 +205,13 @@ const countryGroups = [
     cities: [
       { name: 'Berlin', description: 'Vibrant cultural capital with rich history, modern architecture, and dynamic art scene.' }
     ]
+  },
+  {
+    name: 'Hungary',
+    description: 'Central European country with rich history, beautiful architecture, and vibrant cultural scene.',
+    cities: [
+      { name: 'Budapest', description: 'Beautiful capital city divided by the Danube River, known for its historic architecture, thermal baths, and vibrant culture.' }
+    ]
   }
 ];
 
@@ -272,7 +279,8 @@ const nonBrazilianLocations = [
   { lat: 36.1699, lng: -115.1398 }, // Las Vegas, USA
   { lat: 34.0522, lng: -118.2437 }, // Los Angeles, USA
   { lat: 48.856614, lng: 2.3522219 }, // Paris, France
-  { lat: 52.520008, lng: 13.404954 } // Berlin, Germany
+  { lat: 52.520008, lng: 13.404954 }, // Berlin, Germany
+  { lat: 47.4979, lng: 19.0402 } // Budapest, Hungary
 ];
 
 // All location details
@@ -352,6 +360,10 @@ const allLocationDetails = [
   {
     name: 'Curitiba, Brazil',
     description: 'Capital of Paraná state, known for its modern architecture, cultural diversity, and excellent quality of life.'
+  },
+  {
+    name: 'Budapest, Hungary',
+    description: 'Beautiful capital city divided by the Danube River, known for its historic architecture, thermal baths, and vibrant culture.'
   }
 ];
 
@@ -602,13 +614,14 @@ const getLocationByCountryAndCity = (countryIndex, cityIndex) => {
 const getNonBrazilIndex = (countryIndex, cityIndex) => {
   // Map country index to the correct non-Brazil location index
   const countryToLocationMap = {
-    1: cityIndex, // Portugal (Lisbon=0, Porto=1)
-    2: cityIndex + 2, // Uruguay (Punta del Este) - offset by 2 because Portugal now has 2 cities
-    3: cityIndex + 3, // UK (London) - offset by 3
-    4: cityIndex + 4, // Netherlands (Amsterdam) - offset by 4
-    5: cityIndex + 5, // USA (San Francisco=0, Las Vegas=1, Los Angeles=2) - offset by 5
-    6: cityIndex + 8, // France (Paris) - offset by 8 because USA now has 3 cities
-    7: cityIndex + 9  // Germany (Berlin) - offset by 9
+    1: cityIndex, // Portugal (Lisbon=0, Porto=1, etc.)
+    2: cityIndex + 8, // Uruguay (Punta del Este) - offset by 8 because Portugal has 8 cities
+    3: cityIndex + 9, // UK (London) - offset by 9
+    4: cityIndex + 10, // Netherlands (Amsterdam) - offset by 10
+    5: cityIndex + 11, // USA (San Francisco=0, Las Vegas=1, Los Angeles=2) - offset by 11
+    6: cityIndex + 14, // France (Paris) - offset by 14 because USA has 3 cities
+    7: cityIndex + 15, // Germany (Berlin) - offset by 15
+    8: cityIndex + 16  // Hungary (Budapest) - offset by 16
   };
   
   return countryToLocationMap[countryIndex] || 0;
