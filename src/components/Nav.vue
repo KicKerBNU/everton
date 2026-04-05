@@ -146,7 +146,7 @@ const closeMobileMenu = () => {
     <!-- Footer Section -->
     <div class="p-4 border-t border-gray-200">
       <div class="text-center">
-        <p class="text-xs text-gray-500">© 2025 Everton Buzzi</p>
+        <p class="text-xs text-gray-500">© 2026 Everton Buzzi</p>
         <p class="text-xs text-gray-400 mt-1">Frontend Developer</p>
       </div>
     </div>

@@ -178,8 +178,15 @@ const books = [
     id: 13,
     name: "Six Lessons",
     author: "Ludwig von Mises",
-    finished: "Reading",
+    finished: "03/10/2026",
     pictureUrl: "book-six.jpg"
+  },
+  {
+    id: 14,
+    name: "Meditations",
+    author: "Marcus Aurelius",
+    finished: "Reading",
+    pictureUrl: "book-meditations.jpeg"
   }
 ];
 

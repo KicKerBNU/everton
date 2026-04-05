@@ -39,7 +39,23 @@
                 <ul class="space-y-1 text-gray-600">
                   <li class="flex items-center">
                     <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></span>
-                    <span class="text-sm lg:text-base">Development and upgrade of the HR platform</span>
+                    <span class="text-sm lg:text-base">Development and building features from scratch and maintaining the existing codebase</span>
+                  </li>
+                  <li class="flex items-center">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></span>
+                    <span class="text-sm lg:text-base">Migration from Vue 2 with VueEx to Vue 3 with Pinia and Composition API</span>
+                  </li>
+                  <li class="flex items-center">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></span>
+                    <span class="text-sm lg:text-base">Create a new design system with Tailwind and Storybook</span>
+                  </li>
+                  <li class="flex items-center">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></span>
+                    <span class="text-sm lg:text-base">Help new employees onboarding process, and support with the development of new features</span>
+                  </li>
+                  <li class="flex items-center">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></span>
+                    <span class="text-sm lg:text-base">Integration with windsurf, claude code, cursor and codex AI tools</span>
                   </li>
                 </ul>
               </div>
