@@ -9,16 +9,16 @@
     <!-- Featured Projects -->
     <div class="mb-12 lg:mb-16">
       <h3 class="text-xl lg:text-2xl font-semibold text-gray-900 mb-6 lg:mb-8 text-center">Featured Projects</h3>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         <!-- BeerCSS Project -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="h-40 sm:h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+          <div class="h-40 sm:h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center flex-shrink-0">
             <img class="w-24 h-24 sm:w-32 sm:h-32 object-contain" src="../assets/beercss.png" alt="BeerCSS Logo" />
           </div>
-          <div class="p-4 lg:p-6">
+          <div class="p-4 lg:p-6 flex flex-col flex-1 min-h-0">
             <h4 class="text-lg lg:text-xl font-semibold text-gray-900 mb-3">BeerCSS</h4>
-            <p class="text-gray-600 mb-6 leading-relaxed text-sm lg:text-base">A utility-first CSS framework for rapidly building custom user interfaces. This project showcases modern CSS practices and responsive design principles.</p>
-            <div class="flex justify-end">
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm lg:text-base flex-1">A utility-first CSS framework for rapidly building custom user interfaces. This project showcases modern CSS practices and responsive design principles.</p>
+            <div class="flex justify-end flex-shrink-0 mt-auto">
               <a 
                 href="https://beercss.com" 
                 target="_blank" 
@@ -33,17 +33,39 @@
         </div>
         
         <!-- Saúde Pilates Project -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-          <div class="h-40 sm:h-48 overflow-hidden">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+          <div class="h-40 sm:h-48 overflow-hidden flex-shrink-0">
             <img class="w-full h-full object-cover" src="../assets/pilates-hero.jpg" alt="Saúde Pilates" />
           </div>
-          <div class="p-4 lg:p-6">
+          <div class="p-4 lg:p-6 flex flex-col flex-1 min-h-0">
             <h4 class="text-lg lg:text-xl font-semibold text-gray-900 mb-3">Saúde Pilates</h4>
-            <p class="text-gray-600 mb-6 leading-relaxed text-sm lg:text-base">A comprehensive platform for pilates practitioners and health professionals. Features include user management, class scheduling, and progress tracking.</p>
-            <div class="flex justify-end">
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm lg:text-base flex-1">A comprehensive platform for pilates practitioners and health professionals. Features include user management, class scheduling, and progress tracking.</p>
+            <div class="flex justify-end flex-shrink-0 mt-auto">
               <a 
                 href="https://www.saudepilates.com.br" 
                 target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-4 lg:px-6 py-2 lg:py-3 border border-blue-600 text-sm font-medium rounded-lg text-blue-600 bg-transparent hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+              >
+                Visit Website
+                <span class="material-icons ml-2 text-sm">open_in_new</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- winflation.eu Project -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 md:col-span-2 lg:col-span-1 flex flex-col h-full">
+          <div class="h-40 sm:h-48 bg-gradient-to-br from-emerald-50 to-teal-100 flex items-center justify-center flex-shrink-0">
+            <span class="material-icons text-6xl sm:text-7xl text-emerald-700/90" aria-hidden="true">insights</span>
+          </div>
+          <div class="p-4 lg:p-6 flex flex-col flex-1 min-h-0">
+            <h4 class="text-lg lg:text-xl font-semibold text-gray-900 mb-3">winflation.eu</h4>
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm lg:text-base flex-1">Financial information by country and dividend data for companies—built to make macro trends and income-focused research easier to explore.</p>
+            <div class="flex justify-end flex-shrink-0 mt-auto">
+              <a
+                href="https://winflation.netlify.app/"
+                target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center px-4 lg:px-6 py-2 lg:py-3 border border-blue-600 text-sm font-medium rounded-lg text-blue-600 bg-transparent hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
               >
@@ -94,6 +116,42 @@
           </div>
           <h4 class="text-base lg:text-lg font-semibold text-gray-900 mb-2">Firebase</h4>
           <p class="text-gray-600 text-xs lg:text-sm">Backend & Hosting</p>
+        </div>
+
+        <!-- Vue I18n -->
+        <div class="bg-white rounded-xl shadow-lg p-4 lg:p-6 text-center hover:shadow-xl transition-shadow duration-300">
+          <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-3 lg:mb-4 bg-indigo-50 rounded-full flex items-center justify-center">
+            <span class="material-icons text-2xl lg:text-3xl text-indigo-600">translate</span>
+          </div>
+          <h4 class="text-base lg:text-lg font-semibold text-gray-900 mb-2">i18n</h4>
+          <p class="text-gray-600 text-xs lg:text-sm">Internationalization</p>
+        </div>
+
+        <!-- Vite -->
+        <div class="bg-white rounded-xl shadow-lg p-4 lg:p-6 text-center hover:shadow-xl transition-shadow duration-300">
+          <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-3 lg:mb-4 bg-violet-50 rounded-full flex items-center justify-center">
+            <span class="material-icons text-2xl lg:text-3xl text-violet-600">bolt</span>
+          </div>
+          <h4 class="text-base lg:text-lg font-semibold text-gray-900 mb-2">Vite</h4>
+          <p class="text-gray-600 text-xs lg:text-sm">Build Tool & Dev Server</p>
+        </div>
+
+        <!-- Tailwind CSS -->
+        <div class="bg-white rounded-xl shadow-lg p-4 lg:p-6 text-center hover:shadow-xl transition-shadow duration-300">
+          <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-3 lg:mb-4 bg-cyan-50 rounded-full flex items-center justify-center">
+            <span class="material-icons text-2xl lg:text-3xl text-cyan-600">palette</span>
+          </div>
+          <h4 class="text-base lg:text-lg font-semibold text-gray-900 mb-2">Tailwind CSS</h4>
+          <p class="text-gray-600 text-xs lg:text-sm">Utility-First CSS</p>
+        </div>
+
+        <!-- Stripe -->
+        <div class="bg-white rounded-xl shadow-lg p-4 lg:p-6 text-center hover:shadow-xl transition-shadow duration-300">
+          <div class="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-3 lg:mb-4 bg-purple-50 rounded-full flex items-center justify-center">
+            <span class="material-icons text-2xl lg:text-3xl text-purple-600">payments</span>
+          </div>
+          <h4 class="text-base lg:text-lg font-semibold text-gray-900 mb-2">Stripe</h4>
+          <p class="text-gray-600 text-xs lg:text-sm">Payments & Billing</p>
         </div>
       </div>
     </div>
