@@ -10,10 +10,10 @@
       <!-- Images Section -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16">
         <div class="relative overflow-hidden rounded-lg shadow-lg">
-          <img class="w-full h-64 sm:h-80 object-cover" src="../assets/everton_amsterdam.jpg" alt="Everton in Amsterdam" />
+          <img class="w-full h-64 sm:h-80 object-cover" src="../../assets/everton_amsterdam.jpg" alt="Everton in Amsterdam" />
         </div>
         <div class="relative overflow-hidden rounded-lg shadow-lg">
-          <img class="w-full h-64 sm:h-80 object-cover" src="../assets/frontend.png" alt="Guy working on a computer" />
+          <img class="w-full h-64 sm:h-80 object-cover" src="../../assets/frontend.png" alt="Guy working on a computer" />
         </div>
       </div>
       
@@ -25,7 +25,7 @@
             <!-- Timeline Item -->
             <div class="relative flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
               <div class="flex-shrink-0 flex justify-center sm:justify-start">
-                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../assets/neobrain.png" alt="Neobrain Logo" />
+                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../../assets/neobrain.png" alt="Neobrain Logo" />
               </div>
               <div class="flex-1 bg-white rounded-lg shadow-lg p-4 lg:p-6">
                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 space-y-2 sm:space-y-0">
@@ -64,7 +64,7 @@
             <!-- Timeline Item -->
             <div class="relative flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
               <div class="flex-shrink-0 flex justify-center sm:justify-start">
-                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../assets/masterlink.png" alt="Masterlink Logo" />
+                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../../assets/masterlink.png" alt="Masterlink Logo" />
               </div>
               <div class="flex-1 bg-white rounded-lg shadow-lg p-4 lg:p-6">
                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 space-y-2 sm:space-y-0">
@@ -91,7 +91,7 @@
             <!-- Timeline Item -->
             <div class="relative flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
               <div class="flex-shrink-0 flex justify-center sm:justify-start">
-                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../assets/inventti.png" alt="Inventti Logo" />
+                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../../assets/inventti.png" alt="Inventti Logo" />
               </div>
               <div class="flex-1 bg-white rounded-lg shadow-lg p-4 lg:p-6">
                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 space-y-2 sm:space-y-0">
@@ -122,7 +122,7 @@
             <!-- Timeline Item -->
             <div class="relative flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
               <div class="flex-shrink-0 flex justify-center sm:justify-start">
-                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../assets/inventti.png" alt="Inventti Logo" />
+                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../../assets/inventti.png" alt="Inventti Logo" />
               </div>
               <div class="flex-1 bg-white rounded-lg shadow-lg p-4 lg:p-6">
                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 space-y-2 sm:space-y-0">
@@ -153,7 +153,7 @@
             <!-- Timeline Item -->
             <div class="relative flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
               <div class="flex-shrink-0 flex justify-center sm:justify-start">
-                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../assets/inventti.png" alt="Inventti Logo" />
+                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../../assets/inventti.png" alt="Inventti Logo" />
               </div>
               <div class="flex-1 bg-white rounded-lg shadow-lg p-4 lg:p-6">
                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 space-y-2 sm:space-y-0">
@@ -184,7 +184,7 @@
             <!-- Timeline Item -->
             <div class="relative flex flex-col sm:flex-row sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
               <div class="flex-shrink-0 flex justify-center sm:justify-start">
-                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../assets/besistemas.jpg" alt="Be Sistemas Logo" />
+                <img class="w-12 h-12 rounded-full border-4 border-white shadow-lg" src="../../assets/besistemas.jpg" alt="Be Sistemas Logo" />
               </div>
               <div class="flex-1 bg-white rounded-lg shadow-lg p-4 lg:p-6">
                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 space-y-2 sm:space-y-0">

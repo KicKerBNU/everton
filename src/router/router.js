@@ -1,10 +1,10 @@
-import Home from '../views/Home.vue';
-import Contact from '../views/Contact.vue';
-import Maps from '../views/Maps.vue';
-import Documentation from '../views/Documentation.vue';
-import Projects from '../views/Projects.vue';
-import Books from '../views/Books.vue';
-import Restaurants from '../views/Restaurants.vue';
+import Home from '../modules/home';
+import Contact from '../modules/contact';
+import Maps from '../modules/maps';
+import Documentation from '../modules/documentation';
+import Projects from '../modules/projects';
+import Books from '../modules/books';
+import Restaurants from '../modules/restaurants';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [

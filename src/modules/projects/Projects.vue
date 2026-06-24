@@ -13,7 +13,7 @@
         <!-- BeerCSS Project -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
           <div class="h-40 sm:h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center flex-shrink-0">
-            <img class="w-24 h-24 sm:w-32 sm:h-32 object-contain" src="../assets/beercss.png" alt="BeerCSS Logo" />
+            <img class="w-24 h-24 sm:w-32 sm:h-32 object-contain" src="../../assets/beercss.png" alt="BeerCSS Logo" />
           </div>
           <div class="p-4 lg:p-6 flex flex-col flex-1 min-h-0">
             <h4 class="text-lg lg:text-xl font-semibold text-gray-900 mb-3">BeerCSS</h4>
@@ -35,7 +35,7 @@
         <!-- Saúde Pilates Project -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
           <div class="h-40 sm:h-48 overflow-hidden flex-shrink-0">
-            <img class="w-full h-full object-cover" src="../assets/pilates-hero.jpg" alt="Saúde Pilates" />
+            <img class="w-full h-full object-cover" src="../../assets/pilates-hero.jpg" alt="Saúde Pilates" />
           </div>
           <div class="p-4 lg:p-6 flex flex-col flex-1 min-h-0">
             <h4 class="text-lg lg:text-xl font-semibold text-gray-900 mb-3">Saúde Pilates</h4>
