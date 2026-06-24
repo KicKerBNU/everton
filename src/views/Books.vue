@@ -12,28 +12,31 @@
 
     <!-- Books Grid -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
         <div 
           v-for="book in sortedBooks" 
           :key="book.id"
-          class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col"
+          class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col h-full"
         >
           <!-- Book Cover -->
-          <div class="w-[286px] h-80 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center overflow-hidden mx-auto">
-            <img 
-              v-if="book.pictureUrl" 
-              :src="book.pictureUrl" 
+          <div class="flex w-full items-center justify-center bg-gradient-to-br from-slate-50 to-indigo-50 flex-shrink-0 border-b border-gray-100 py-6">
+            <img
+              v-if="book.pictureUrl"
+              :src="bookCoverUrl(book.pictureUrl)"
               :alt="`Cover of ${book.name}`"
-              class="w-full h-full object-cover"
+              class="h-80 w-[286px] shrink-0 drop-shadow-md"
+              width="286"
+              height="320"
+              loading="lazy"
             />
-            <div v-else class="text-center">
+            <div v-else class="flex h-80 w-[286px] shrink-0 flex-col items-center justify-center text-center">
               <span class="material-icons text-6xl text-gray-400 mb-2">book</span>
               <p class="text-sm text-gray-500">Cover Image</p>
             </div>
           </div>
           
           <!-- Book Details -->
-          <div class="p-6 flex flex-col flex-grow">
+          <div class="p-5 sm:p-6 flex flex-col flex-1 min-h-0">
             <!-- Title and Author Section -->
             <div class="flex-grow">
               <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2 min-h-[3.5rem]">{{ book.name }}</h3>
@@ -64,7 +67,7 @@
       </div>
       
       <!-- Reading Stats -->
-      <div class="mt-12 bg-white rounded-lg shadow-md p-6">
+      <div class="mt-12 bg-white rounded-xl shadow-md p-6 lg:p-8">
         <h2 class="text-xl font-semibold text-gray-900 mb-4">Reading Statistics</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="text-center">
@@ -165,7 +168,7 @@ const books = [
     name: "Javier Milei Viva a liberdade, carajo",
     author: "Javier Milei",
     finished: "01/10/2025",
-    pictureUrl: "javiermilei.jpg"
+    pictureUrl: "book-javiermilei.jpg"
   },
   {
     id: 12,
@@ -185,10 +188,19 @@ const books = [
     id: 14,
     name: "Meditations",
     author: "Marcus Aurelius",
-    finished: "Reading",
+    finished: "01/01/2026",
     pictureUrl: "book-meditations.jpeg"
+  },
+  {
+    id: 15,
+    name: "The Intelligent Investor, 3rd Ed",
+    author: "Benjamin Graham, Jason Zweig",
+    finished: "Reading",
+    pictureUrl: "book-intelligentinvestor.jpg"
   }
 ];
+
+const bookCoverUrl = (filename) => `/${filename}`;
 
 // Computed properties for statistics
 const totalBooks = computed(() => books.length);
