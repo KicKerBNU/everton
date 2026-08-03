@@ -195,7 +195,7 @@ const books = [
     id: 15,
     name: "The Intelligent Investor, 3rd Ed",
     author: "Benjamin Graham, Jason Zweig",
-    finished: "Reading",
+    finished: "08/03/2026",
     pictureUrl: "book-intelligentinvestor.jpg"
   }
 ];
