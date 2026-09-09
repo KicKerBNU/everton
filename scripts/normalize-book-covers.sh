@@ -26,6 +26,7 @@ FILES=(
   "book-six.jpg"
   "book-meditations.jpeg"
   "book-intelligentinvestor.jpg"
+  "book-thoushallprosper.jpg"
 )
 
 for file in "${FILES[@]}"; do

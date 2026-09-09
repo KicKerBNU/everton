@@ -1,10 +1,9 @@
 <template>
-  <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
-    <!-- Header -->
+  <div class="surface-card overflow-hidden rounded-2xl transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-28px_rgba(16,42,42,0.55)] flex flex-col h-full">
     <div
       v-if="project.image"
       class="h-40 sm:h-48 flex-shrink-0 overflow-hidden"
-      :class="project.imageFit === 'cover' ? '' : 'bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center'"
+      :class="project.imageFit === 'cover' ? '' : 'bg-gradient-to-br from-accent-soft to-mist flex items-center justify-center'"
     >
       <img
         :src="project.image"
@@ -22,12 +21,11 @@
       </span>
     </div>
 
-    <!-- Body -->
-    <div class="p-4 lg:p-6 flex flex-col flex-1 min-h-0">
-      <h4 class="text-lg lg:text-xl font-semibold text-gray-900 mb-3">{{ project.name }}</h4>
-      <p class="text-gray-600 mb-6 leading-relaxed text-sm lg:text-base flex-1">{{ project.description }}</p>
+    <div class="p-5 lg:p-6 flex flex-col flex-1 min-h-0">
+      <h4 class="font-display text-xl text-ink mb-3">{{ project.name }}</h4>
+      <p class="text-muted mb-6 leading-relaxed text-sm lg:text-base flex-1">{{ project.description }}</p>
 
-      <div class="flex items-end justify-between gap-4 flex-shrink-0 mt-auto pt-4 border-t border-gray-100">
+      <div class="flex items-end justify-between gap-4 flex-shrink-0 mt-auto pt-4 border-t border-line/70">
         <div class="flex items-center gap-3 sm:gap-4" aria-label="Available platforms">
           <div
             v-for="platform in platformOptions"
@@ -38,11 +36,11 @@
             <div
               v-if="platform.id === 'ios'"
               class="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg transition-colors"
-              :class="project.platforms[platform.id] ? 'bg-gray-900' : 'bg-gray-100'"
+              :class="project.platforms[platform.id] ? 'bg-ink' : 'bg-mist/70'"
             >
               <svg
                 class="h-4 w-4 sm:h-[1.125rem] sm:w-[1.125rem] transition-colors"
-                :class="project.platforms[platform.id] ? 'text-white' : 'text-gray-300'"
+                :class="project.platforms[platform.id] ? 'text-white' : 'text-line'"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
@@ -53,14 +51,14 @@
             <span
               v-else
               class="material-icons text-xl sm:text-2xl transition-colors"
-              :class="project.platforms[platform.id] ? platform.activeClass : 'text-gray-300'"
+              :class="project.platforms[platform.id] ? platform.activeClass : 'text-line'"
               aria-hidden="true"
             >
               {{ platform.icon }}
             </span>
             <span
               class="text-[10px] sm:text-xs font-medium uppercase tracking-wide transition-colors"
-              :class="project.platforms[platform.id] ? 'text-gray-600' : 'text-gray-300'"
+              :class="project.platforms[platform.id] ? 'text-muted' : 'text-line'"
             >
               {{ platform.label }}
             </span>
@@ -71,10 +69,10 @@
           :href="project.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center px-4 lg:px-6 py-2 lg:py-3 border border-blue-600 text-sm font-medium rounded-lg text-blue-600 bg-transparent hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors shrink-0"
+          class="inline-flex items-center rounded-full border border-accent px-4 py-2 text-sm font-semibold text-accent hover:bg-accent hover:text-white transition shrink-0"
         >
-          Visit Website
-          <span class="material-icons ml-2 text-sm">open_in_new</span>
+          Visit
+          <span class="material-icons ml-1 text-sm">open_in_new</span>
         </a>
       </div>
     </div>
@@ -90,7 +88,7 @@ defineProps({
 });
 
 const platformOptions = [
-  { id: 'web', label: 'Web', icon: 'language', activeClass: 'text-blue-600' },
+  { id: 'web', label: 'Web', icon: 'language', activeClass: 'text-accent' },
   { id: 'ios', label: 'iOS' },
   { id: 'android', label: 'Android', icon: 'android', activeClass: 'text-green-600' }
 ];

@@ -1,12 +1,14 @@
 <template>
-  <div id="maps" class="max-w-7xl mx-auto px-4 py-4 lg:py-8">
-    <div class="mb-8 lg:mb-12"></div>
-    <div class="text-center mb-6 lg:mb-8">
-      <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-2 lg:mb-4">Visited Countries Map</h3>
-      <p class="text-sm lg:text-base text-gray-600 mb-6">Below are some countries I've visited marked on the map.</p>
+  <div id="maps" class="page-shell">
+    <div class="text-center mb-8 lg:mb-10">
+      <p class="section-kicker mb-3">Travel</p>
+      <h3 class="font-display text-3xl lg:text-5xl text-ink mb-3">Visited Countries</h3>
+      <p class="text-muted text-base lg:text-lg max-w-2xl mx-auto">
+        Places I've been — click a country card to drill into cities and zoom the map.
+      </p>
     </div>
     
-    <div class="bg-white rounded-lg shadow-lg mb-8 lg:mb-12" v-if="!mapError">
+    <div class="surface-card rounded-2xl overflow-hidden mb-8 lg:mb-12" v-if="!mapError">
       <GoogleMap
         ref="mapRef"
         id="map"
@@ -60,15 +62,15 @@
       <template v-if="activeCountryIndex === null">
         <div v-for="(country, countryIndex) in countryGroups" :key="`country-${countryIndex}`">
           <article 
-            class="bg-gray-50 border border-gray-200 rounded-lg shadow-md h-full cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-blue-300 pointer-events-auto"
+            class="surface-card rounded-2xl h-full cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 pointer-events-auto"
             @click="onCountryCardClick(countryIndex)"
           >
           <div class="p-4 lg:p-6">
-              <h5 class="text-base lg:text-lg font-semibold text-gray-900 mb-2">{{ country.name }}</h5>
-              <p class="text-sm lg:text-base text-gray-600 mb-3">{{ country.description }}</p>
+              <h5 class="font-display text-lg text-ink mb-2">{{ country.name }}</h5>
+              <p class="text-sm lg:text-base text-muted mb-3">{{ country.description }}</p>
               <div class="flex items-center justify-between">
-                <span class="text-xs text-gray-500">{{ country.cities.length }} cities visited</span>
-                <span class="material-icons text-sm text-gray-400">chevron_right</span>
+                <span class="text-xs text-muted">{{ country.cities.length }} cities visited</span>
+                <span class="material-icons text-sm text-accent">chevron_right</span>
               </div>
             </div>
           </article>
@@ -81,7 +83,7 @@
         <div class="col-span-full mb-4">
           <button 
             @click="onBackToCountries"
-            class="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+            class="flex items-center px-4 py-2 bg-accent text-white rounded-full hover:bg-accent-deep transition-colors"
           >
             <span class="material-icons mr-2">arrow_back</span>
             Back to Countries
@@ -90,22 +92,22 @@
         
         <!-- Selected country header -->
         <div class="col-span-full mb-4">
-          <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 class="text-xl font-semibold text-blue-900">{{ countryGroups[activeCountryIndex].name }}</h3>
-            <p class="text-blue-700">{{ countryGroups[activeCountryIndex].description }}</p>
+          <div class="rounded-2xl border border-accent/20 bg-accent-soft/60 p-4">
+            <h3 class="font-display text-xl text-ink">{{ countryGroups[activeCountryIndex].name }}</h3>
+            <p class="text-accent-deep">{{ countryGroups[activeCountryIndex].description }}</p>
           </div>
         </div>
         
         <!-- City cards for selected country -->
         <div v-for="(city, cityIndex) in countryGroups[activeCountryIndex].cities" :key="`city-${activeCountryIndex}-${cityIndex}`">
           <article 
-            class="bg-white border border-gray-200 rounded-lg shadow-md h-full cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-blue-300 pointer-events-auto"
-            :class="{ 'ring-2 ring-blue-500 bg-blue-50 border-blue-400': activeMarkerIndex === getCityGlobalIndex(activeCountryIndex, cityIndex) }"
+            class="surface-card rounded-2xl h-full cursor-pointer transition-all duration-300 hover:-translate-y-1 pointer-events-auto"
+            :class="{ 'ring-2 ring-accent bg-accent-soft/40 border-accent': activeMarkerIndex === getCityGlobalIndex(activeCountryIndex, cityIndex) }"
             @click="onCityCardClick(activeCountryIndex, cityIndex)"
           >
             <div class="p-4 lg:p-6">
-              <h5 class="text-base lg:text-lg font-semibold text-gray-900 mb-2">{{ city.name }}</h5>
-              <p class="text-sm lg:text-base text-gray-600">{{ city.description }}</p>
+              <h5 class="font-display text-lg text-ink mb-2">{{ city.name }}</h5>
+              <p class="text-sm lg:text-base text-muted">{{ city.description }}</p>
           </div>
         </article>
       </div>

@@ -6,6 +6,15 @@ const route = useRoute();
 const path = computed(() => route.path);
 const isMobileMenuOpen = ref(false);
 
+const links = [
+  { to: '/', label: 'Home', icon: 'home', match: (p) => p === '/' || p === '/home' },
+  { to: '/projects', label: 'Projects', icon: 'work', match: (p) => p === '/projects' },
+  { to: '/books', label: 'Books', icon: 'menu_book', match: (p) => p === '/books' },
+  { to: '/maps', label: 'Maps', icon: 'public', match: (p) => p === '/maps' },
+  { to: '/restaurants', label: 'Restaurants', icon: 'restaurant', match: (p) => p === '/restaurants' },
+  { to: '/contact', label: 'Contact', icon: 'mail', match: (p) => p === '/contact' }
+];
+
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
@@ -16,139 +25,85 @@ const closeMobileMenu = () => {
 </script>
 
 <template>
-  <!-- Mobile Hamburger Button -->
-  <button 
+  <button
+    type="button"
     @click="toggleMobileMenu"
-    class="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-lg hover:bg-gray-50 transition-colors"
-    :class="{ 'bg-blue-50': isMobileMenuOpen }"
+    class="lg:hidden fixed top-4 left-4 z-50 inline-flex items-center justify-center rounded-xl bg-ink text-paper p-2.5 shadow-lg"
+    :aria-expanded="isMobileMenuOpen"
+    aria-label="Toggle navigation"
   >
-    <span class="material-icons text-gray-700">
-      {{ isMobileMenuOpen ? 'close' : 'menu' }}
-    </span>
+    <span class="material-icons text-[22px]">{{ isMobileMenuOpen ? 'close' : 'menu' }}</span>
   </button>
 
-  <!-- Mobile Overlay -->
-  <div 
-    v-if="isMobileMenuOpen" 
+  <div
+    v-if="isMobileMenuOpen"
+    class="lg:hidden fixed inset-0 z-40 bg-ink/50 backdrop-blur-[2px]"
     @click="closeMobileMenu"
-    class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
-  ></div>
+  />
 
-  <!-- Navigation Sidebar -->
-  <nav 
-    id="nav" 
-    class="fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 flex flex-col transform transition-transform duration-300 ease-in-out lg:translate-x-0"
+  <nav
+    id="nav"
+    class="fixed top-0 left-0 z-50 flex h-full w-[17.5rem] flex-col border-r border-white/10 bg-ink text-paper transform transition-transform duration-300 ease-out lg:translate-x-0"
     :class="isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'"
   >
-    <!-- Profile Section -->
-    <div class="p-6 border-b border-gray-200">
-      <router-link 
-        to="/" 
-        class="flex items-center space-x-3 group"
-        :class="{ 'text-blue-600': path === '/' }"
-        @click="closeMobileMenu"
-      >
-        <img 
-          class="w-12 h-12 rounded-full ring-2 ring-gray-200 group-hover:ring-blue-300 transition-all duration-200" 
-          src="../assets/eb.jpg" 
-          alt="Everton Buzzi" 
+    <div class="relative overflow-hidden border-b border-white/10 px-5 py-6">
+      <div class="pointer-events-none absolute -right-8 -top-10 h-32 w-32 rounded-full bg-accent/30 blur-2xl" />
+      <router-link to="/" class="relative flex items-center gap-3 group" @click="closeMobileMenu">
+        <img
+          class="h-12 w-12 rounded-full object-cover ring-2 ring-accent/40 group-hover:ring-accent transition"
+          src="../assets/everton-portrait.jpg"
+          alt="Everton Buzzi"
         />
         <div>
-          <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">Everton Buzzi</h3>
-          <p class="text-sm text-gray-500">Frontend Developer</p>
+          <p class="font-display text-lg leading-tight text-white group-hover:text-accent-soft transition">Everton Buzzi</p>
+          <p class="text-xs text-mist/80">Frontend · Lisbon</p>
         </div>
       </router-link>
     </div>
-    
-    <!-- Navigation Links -->
-    <div class="flex-1 py-4">
-      <div class="px-4 space-y-2">
-        <router-link 
-          to="/" 
-          :class="{ 
-            'bg-blue-50 text-blue-700 border-r-2 border-blue-600': path === '/',
-            'text-gray-700 hover:bg-gray-50 hover:text-gray-900': path !== '/'
-          }" 
-          class="flex items-center px-4 py-3 rounded-lg transition-all duration-200 group"
+
+    <div class="flex-1 overflow-y-auto px-3 py-5">
+      <p class="mb-3 px-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-mist/50">Navigate</p>
+      <div class="space-y-1">
+        <router-link
+          v-for="link in links"
+          :key="link.to"
+          :to="link.to"
+          class="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition"
+          :class="
+            link.match(path)
+              ? 'bg-accent text-white shadow-[0_10px_24px_-12px_rgba(15,118,110,0.9)]'
+              : 'text-mist/85 hover:bg-white/5 hover:text-white'
+          "
           @click="closeMobileMenu"
         >
-          <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">home</span>
-          <span class="font-medium">Home</span>
-        </router-link>
-        
-        <router-link 
-          to="/projects" 
-          :class="{ 
-            'bg-blue-50 text-blue-700 border-r-2 border-blue-600': path === '/projects',
-            'text-gray-700 hover:bg-gray-50 hover:text-gray-900': path !== '/projects'
-          }" 
-          class="flex items-center px-4 py-3 rounded-lg transition-all duration-200 group"
-          @click="closeMobileMenu"
-        >
-          <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">work</span>
-          <span class="font-medium">Projects</span>
-        </router-link>
-        
-        <router-link 
-          to="/contact" 
-          :class="{ 
-            'bg-blue-50 text-blue-700 border-r-2 border-blue-600': path === '/contact',
-            'text-gray-700 hover:bg-gray-50 hover:text-gray-900': path !== '/contact'
-          }" 
-          class="flex items-center px-4 py-3 rounded-lg transition-all duration-200 group"
-          @click="closeMobileMenu"
-        >
-          <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">contact_mail</span>
-          <span class="font-medium">Contact</span>
-        </router-link>
-        
-        <router-link 
-          to="/maps" 
-          :class="{ 
-            'bg-blue-50 text-blue-700 border-r-2 border-blue-600': path === '/maps',
-            'text-gray-700 hover:bg-gray-50 hover:text-gray-900': path !== '/maps'
-          }" 
-          class="flex items-center px-4 py-3 rounded-lg transition-all duration-200 group"
-          @click="closeMobileMenu"
-        >
-          <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">map</span>
-          <span class="font-medium">Maps</span>
-        </router-link>
-        
-        <router-link 
-          to="/books" 
-          :class="{ 
-            'bg-blue-50 text-blue-700 border-r-2 border-blue-600': path === '/books',
-            'text-gray-700 hover:bg-gray-50 hover:text-gray-900': path !== '/books'
-          }" 
-          class="flex items-center px-4 py-3 rounded-lg transition-all duration-200 group"
-          @click="closeMobileMenu"
-        >
-          <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">book</span>
-          <span class="font-medium">Books</span>
-        </router-link>
-        
-        <router-link 
-          to="/restaurants" 
-          :class="{ 
-            'bg-blue-50 text-blue-700 border-r-2 border-blue-600': path === '/restaurants',
-            'text-gray-700 hover:bg-gray-50 hover:text-gray-900': path !== '/restaurants'
-          }" 
-          class="flex items-center px-4 py-3 rounded-lg transition-all duration-200 group"
-          @click="closeMobileMenu"
-        >
-          <span class="material-icons mr-3 text-lg group-hover:scale-110 transition-transform">restaurant</span>
-          <span class="font-medium">Restaurants</span>
+          <span class="material-icons text-[20px]">{{ link.icon }}</span>
+          <span>{{ link.label }}</span>
         </router-link>
       </div>
     </div>
-    
-    <!-- Footer Section -->
-    <div class="p-4 border-t border-gray-200">
-      <div class="text-center">
-        <p class="text-xs text-gray-500">© 2026 Everton Buzzi</p>
-        <p class="text-xs text-gray-400 mt-1">Frontend Developer</p>
+
+    <div class="border-t border-white/10 px-5 py-4">
+      <div class="flex gap-3 text-mist/70">
+        <a
+          href="https://www.linkedin.com/in/evertonbuzzi"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-accent-soft transition"
+          aria-label="LinkedIn"
+        >
+          <span class="material-icons text-[20px]">work</span>
+        </a>
+        <a
+          href="https://github.com/KicKerBNU"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-accent-soft transition"
+          aria-label="GitHub"
+        >
+          <span class="material-icons text-[20px]">code</span>
+        </a>
       </div>
+      <p class="mt-3 text-[11px] text-mist/45">© {{ new Date().getFullYear() }} Everton Buzzi</p>
     </div>
   </nav>
 </template>

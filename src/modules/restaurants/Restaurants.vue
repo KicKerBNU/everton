@@ -1,25 +1,21 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
-    <!-- Header -->
-    <div class="bg-white shadow-sm border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="py-8">
-          <h1 class="text-3xl font-bold text-gray-900 mb-2">My Restaurant Collection</h1>
-          <p class="text-lg text-gray-600">Discovering culinary experiences around the world</p>
-        </div>
+  <div>
+    <div class="page-shell pb-4">
+      <div class="text-center">
+        <p class="section-kicker mb-3">Food</p>
+        <h1 class="font-display text-3xl lg:text-5xl text-ink mb-3">Restaurant Collection</h1>
+        <p class="text-muted text-base lg:text-lg">Favorite tables and culinary finds — mostly Lisbon so far.</p>
       </div>
     </div>
 
-    <!-- Filters Section -->
-    <div class="bg-white border-b border-gray-200 sticky top-0 z-10">
+    <div class="sticky top-0 z-10 border-y border-line/70 bg-paper-elevated/90 backdrop-blur">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div class="flex flex-wrap gap-4 items-center">
-          <!-- Rating Filter -->
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700">Rating:</label>
+            <label class="text-sm font-medium text-ink">Rating:</label>
             <select 
               v-model="filters.rating" 
-              class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="px-3 py-2 border border-line rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent"
             >
               <option value="">All Ratings</option>
               <option value="5">5 Stars</option>
@@ -30,10 +26,10 @@
 
           <!-- Country Filter -->
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700">Country:</label>
+            <label class="text-sm font-medium text-ink">Country:</label>
             <select 
               v-model="filters.country" 
-              class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="px-3 py-2 border border-line rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent"
             >
               <option value="">All Countries</option>
               <option v-for="country in uniqueCountries" :key="country" :value="country">
@@ -44,10 +40,10 @@
 
           <!-- Cuisine Filter -->
           <div class="flex items-center space-x-2">
-            <label class="text-sm font-medium text-gray-700">Cuisine:</label>
+            <label class="text-sm font-medium text-ink">Cuisine:</label>
             <select 
               v-model="filters.cuisine" 
-              class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="px-3 py-2 border border-line rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent"
             >
               <option value="">All Cuisines</option>
               <option v-for="cuisine in uniqueCuisines" :key="cuisine" :value="cuisine">
@@ -59,13 +55,12 @@
           <!-- Clear Filters -->
           <button 
             @click="clearFilters"
-            class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+            class="px-4 py-2 text-sm text-muted hover:text-ink hover:bg-mist/60 rounded-full transition-colors"
           >
             Clear Filters
           </button>
 
-          <!-- Results Count -->
-          <div class="ml-auto text-sm text-gray-500">
+          <div class="ml-auto text-sm text-muted">
             {{ filteredRestaurants.length }} restaurants found
           </div>
         </div>
@@ -77,7 +72,7 @@
       <!-- No Results Message -->
       <div v-if="filteredRestaurants.length === 0" class="text-center py-12">
         <span class="material-icons text-6xl text-gray-300 mb-4">restaurant</span>
-        <h3 class="text-lg font-medium text-gray-900 mb-2">No restaurants found</h3>
+        <h3 class="text-lg font-medium text-ink mb-2">No restaurants found</h3>
         <p class="text-gray-500">Try adjusting your filters to see more results.</p>
       </div>
 
@@ -86,7 +81,7 @@
         <div 
           v-for="restaurant in filteredRestaurants" 
           :key="restaurant.id"
-          class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-300"
+          class="surface-card rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300"
         >
           <div class="flex flex-col lg:flex-row">
             <!-- Restaurant Image -->
@@ -109,8 +104,8 @@
                 <!-- Header -->
                 <div class="flex items-start justify-between mb-4">
                   <div class="flex-1">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ restaurant.name }}</h3>
-                    <div class="flex items-center space-x-4 text-sm text-gray-600">
+                    <h3 class="text-xl font-semibold text-ink mb-2">{{ restaurant.name }}</h3>
+                    <div class="flex items-center space-x-4 text-sm text-muted">
                       <span class="flex items-center">
                         <span class="material-icons text-yellow-400 mr-1">location_on</span>
                         {{ restaurant.city }}, {{ restaurant.country }}
@@ -134,17 +129,17 @@
                         star
                       </span>
                     </div>
-                    <span class="text-sm font-medium text-gray-700 ml-1">({{ restaurant.rating }})</span>
+                    <span class="text-sm font-medium text-ink ml-1">({{ restaurant.rating }})</span>
                   </div>
                 </div>
 
                 <!-- Description -->
-                <p class="text-gray-600 mb-4 flex-1">{{ restaurant.description }}</p>
+                <p class="text-muted mb-4 flex-1">{{ restaurant.description }}</p>
 
                 <!-- Location Section -->
                 <div class="mt-4 p-4 bg-gray-50 rounded-lg">
                   <div class="flex items-center justify-between mb-2">
-                    <h4 class="text-sm font-medium text-gray-900">Location</h4>
+                    <h4 class="text-sm font-medium text-ink">Location</h4>
                     <div class="flex space-x-2">
                       <button 
                         @click="copyAddress(restaurant.address, $event)"
@@ -165,7 +160,7 @@
                       </button>
                     </div>
                   </div>
-                  <p class="text-sm text-gray-600">{{ restaurant.address }}</p>
+                  <p class="text-sm text-muted">{{ restaurant.address }}</p>
                 </div>
 
                 <!-- Inline Map Section -->
@@ -198,7 +193,7 @@
                     <span 
                       v-for="tag in restaurant.tags" 
                       :key="tag"
-                      class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
+                      class="px-2 py-1 bg-accent-soft text-accent-deep text-xs rounded-full"
                     >
                       {{ tag }}
                     </span>
@@ -215,24 +210,24 @@
       </div>
 
       <!-- Statistics -->
-      <div class="mt-12 bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-        <h2 class="text-xl font-semibold text-gray-900 mb-4">Restaurant Statistics</h2>
+      <div class="mt-12 surface-card rounded-2xl p-6">
+        <h2 class="text-xl font-semibold text-ink mb-4">Restaurant Statistics</h2>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div class="text-center">
-            <div class="text-3xl font-bold text-blue-600">{{ totalRestaurants }}</div>
-            <div class="text-sm text-gray-600">Total Restaurants</div>
+            <div class="text-3xl font-bold text-accent">{{ totalRestaurants }}</div>
+            <div class="text-sm text-muted">Total Restaurants</div>
           </div>
           <div class="text-center">
             <div class="text-3xl font-bold text-green-600">{{ averageRating }}</div>
-            <div class="text-sm text-gray-600">Average Rating</div>
+            <div class="text-sm text-muted">Average Rating</div>
           </div>
           <div class="text-center">
             <div class="text-3xl font-bold text-purple-600">{{ uniqueCountries.length }}</div>
-            <div class="text-sm text-gray-600">Countries Visited</div>
+            <div class="text-sm text-muted">Countries Visited</div>
           </div>
           <div class="text-center">
             <div class="text-3xl font-bold text-orange-600">{{ uniqueCuisines.length }}</div>
-            <div class="text-sm text-gray-600">Cuisine Types</div>
+            <div class="text-sm text-muted">Cuisine Types</div>
           </div>
         </div>
       </div>

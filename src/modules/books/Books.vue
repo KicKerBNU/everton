@@ -1,87 +1,73 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
-    <!-- Header -->
-    <div class="bg-white shadow-sm border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="py-8">
-          <h1 class="text-3xl font-bold text-gray-900 mb-2">Books I've Read</h1>
-          <p class="text-lg text-gray-600">A collection of books that have shaped my thinking and expanded my knowledge</p>
-        </div>
-      </div>
+  <div class="page-shell">
+    <div class="text-center mb-10">
+      <p class="section-kicker mb-3">Library</p>
+      <h1 class="font-display text-3xl lg:text-5xl text-ink mb-3">Books I've Read</h1>
+      <p class="text-muted text-base lg:text-lg max-w-2xl mx-auto">
+        Titles that shaped how I think about investing, product, systems, and life.
+      </p>
     </div>
 
-    <!-- Books Grid -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
-        <div 
-          v-for="book in sortedBooks" 
-          :key="book.id"
-          class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col h-full"
-        >
-          <!-- Book Cover -->
-          <div class="flex w-full items-center justify-center bg-gradient-to-br from-slate-50 to-indigo-50 flex-shrink-0 border-b border-gray-100 py-6">
-            <img
-              v-if="book.pictureUrl"
-              :src="bookCoverUrl(book.pictureUrl)"
-              :alt="`Cover of ${book.name}`"
-              class="h-80 w-[286px] shrink-0 drop-shadow-md"
-              width="286"
-              height="320"
-              loading="lazy"
-            />
-            <div v-else class="flex h-80 w-[286px] shrink-0 flex-col items-center justify-center text-center">
-              <span class="material-icons text-6xl text-gray-400 mb-2">book</span>
-              <p class="text-sm text-gray-500">Cover Image</p>
-            </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
+      <div
+        v-for="book in sortedBooks"
+        :key="book.id"
+        class="surface-card rounded-2xl overflow-hidden flex flex-col h-full transition hover:-translate-y-1"
+      >
+        <div class="flex w-full items-center justify-center bg-gradient-to-br from-mist/50 to-accent-soft/40 flex-shrink-0 border-b border-line/60 py-6">
+          <img
+            v-if="book.pictureUrl"
+            :src="bookCoverUrl(book.pictureUrl)"
+            :alt="`Cover of ${book.name}`"
+            class="h-80 w-[286px] shrink-0 drop-shadow-md"
+            width="286"
+            height="320"
+            loading="lazy"
+          />
+          <div v-else class="flex h-80 w-[286px] shrink-0 flex-col items-center justify-center text-center">
+            <span class="material-icons text-6xl text-muted mb-2">book</span>
+            <p class="text-sm text-muted">Cover Image</p>
           </div>
-          
-          <!-- Book Details -->
-          <div class="p-5 sm:p-6 flex flex-col flex-1 min-h-0">
-            <!-- Title and Author Section -->
-            <div class="flex-grow">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2 min-h-[3.5rem]">{{ book.name }}</h3>
-              <p class="text-sm text-gray-600 mb-4">by {{ book.author }}</p>
-            </div>
-            
-            <!-- Status and Date Section - Fixed at bottom -->
-            <div class="mt-auto">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                  <span 
-                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
-                    :class="getStatusClass(book.finished)"
-                  >
-                    <span class="w-2 h-2 rounded-full mr-1.5" :class="getStatusDotClass(book.finished)"></span>
-                    {{ getStatusText(book.finished) }}
-                  </span>
-                </div>
-                
-                <!-- Finish Date -->
-                <div v-if="book.finished !== 'Reading'" class="text-xs text-gray-500">
-                  {{ formatDate(book.finished) }}
-                </div>
+        </div>
+
+        <div class="p-5 sm:p-6 flex flex-col flex-1 min-h-0">
+          <div class="flex-grow">
+            <h3 class="font-display text-lg text-ink mb-2 line-clamp-2 min-h-[3.5rem]">{{ book.name }}</h3>
+            <p class="text-sm text-muted mb-4">by {{ book.author }}</p>
+          </div>
+
+          <div class="mt-auto">
+            <div class="flex items-center justify-between">
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
+                :class="getStatusClass(book.finished)"
+              >
+                <span class="w-2 h-2 rounded-full mr-1.5" :class="getStatusDotClass(book.finished)"></span>
+                {{ getStatusText(book.finished) }}
+              </span>
+              <div v-if="book.finished !== 'Reading'" class="text-xs text-muted">
+                {{ formatDate(book.finished) }}
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-      <!-- Reading Stats -->
-      <div class="mt-12 bg-white rounded-xl shadow-md p-6 lg:p-8">
-        <h2 class="text-xl font-semibold text-gray-900 mb-4">Reading Statistics</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="text-center">
-            <div class="text-3xl font-bold text-blue-600">{{ totalBooks }}</div>
-            <div class="text-sm text-gray-600">Total Books</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-green-600">{{ finishedBooks }}</div>
-            <div class="text-sm text-gray-600">Finished</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-orange-600">{{ currentlyReading }}</div>
-            <div class="text-sm text-gray-600">Currently Reading</div>
-          </div>
+    </div>
+
+    <div class="mt-12 surface-card rounded-2xl p-6 lg:p-8">
+      <h2 class="font-display text-xl text-ink mb-6">Reading Statistics</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="font-display text-3xl text-accent">{{ totalBooks }}</div>
+          <div class="text-sm text-muted">Total Books</div>
+        </div>
+        <div class="text-center">
+          <div class="font-display text-3xl text-emerald-700">{{ finishedBooks }}</div>
+          <div class="text-sm text-muted">Finished</div>
+        </div>
+        <div class="text-center">
+          <div class="font-display text-3xl text-amber-700">{{ currentlyReading }}</div>
+          <div class="text-sm text-muted">Currently Reading</div>
         </div>
       </div>
     </div>
@@ -197,6 +183,13 @@ const books = [
     author: "Benjamin Graham, Jason Zweig",
     finished: "08/03/2026",
     pictureUrl: "book-intelligentinvestor.jpg"
+  },
+  {
+    id: 16,
+    name: "Thou Shall Prosper",
+    author: "Daniel Lapin",
+    finished: "Reading",
+    pictureUrl: "book-thoushallprosper.jpg"
   }
 ];
 
@@ -222,9 +215,9 @@ const sortedBooks = computed(() => {
 // Helper functions
 const getStatusClass = (status) => {
   if (status === 'Reading') {
-    return 'bg-orange-100 text-orange-800';
+    return 'bg-amber-100 text-amber-900';
   }
-  return 'bg-green-100 text-green-800';
+  return 'bg-accent-soft text-accent-deep';
 };
 
 const getStatusDotClass = (status) => {
