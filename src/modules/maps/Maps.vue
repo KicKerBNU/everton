@@ -227,6 +227,13 @@ const countryGroups = [
     cities: [
       { name: 'Bergamo', description: 'Lombardy city with a stunning medieval Città Alta, Venetian walls, and views over the Po Valley.' }
     ]
+  },
+  {
+    name: 'Spain',
+    description: 'Iberian country known for vibrant cities, Mediterranean coastline, and rich cultural traditions.',
+    cities: [
+      { name: 'Barcelona', description: 'Catalan capital famous for Gaudí architecture, Mediterranean beaches, and lively street life.' }
+    ]
   }
 ];
 
@@ -298,7 +305,8 @@ const nonBrazilianLocations = [
   { lat: 47.4979, lng: 19.0402 }, // Budapest, Hungary
   { lat: 45.8150, lng: 15.9819 }, // Zagreb, Croatia
   { lat: 43.5081, lng: 16.4402 }, // Split, Croatia
-  { lat: 45.6983, lng: 9.6773 } // Bergamo, Italy
+  { lat: 45.6983, lng: 9.6773 }, // Bergamo, Italy
+  { lat: 41.3874, lng: 2.1686 } // Barcelona, Spain
 ];
 
 // Function to get marker options based on active state
@@ -557,7 +565,8 @@ const getNonBrazilIndex = (countryIndex, cityIndex) => {
     7: cityIndex + 15, // Germany (Berlin) - offset by 15
     8: cityIndex + 16, // Hungary (Budapest) - offset by 16
     9: cityIndex + 17, // Croatia (Zagreb, Split) - offset by 17
-    10: cityIndex + 19 // Italy (Bergamo) - offset by 19
+    10: cityIndex + 19, // Italy (Bergamo) - offset by 19
+    11: cityIndex + 20 // Spain (Barcelona) - offset by 20
   };
   
   return countryToLocationMap[countryIndex] || 0;
