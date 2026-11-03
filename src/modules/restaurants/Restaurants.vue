@@ -2,9 +2,9 @@
   <div>
     <div class="page-shell pb-4">
       <div class="text-center">
-        <p class="section-kicker mb-3">Food</p>
+        <p class="section-kicker mb-3">// FOOD.LOG</p>
         <h1 class="font-display text-3xl lg:text-5xl text-ink mb-3">Restaurant Collection</h1>
-        <p class="text-muted text-base lg:text-lg">Favorite tables and culinary finds — mostly Lisbon so far.</p>
+        <p class="font-mono text-sm text-muted">Favorite tables and culinary finds — mostly Lisbon so far.</p>
       </div>
     </div>
 

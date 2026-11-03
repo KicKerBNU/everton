@@ -1,9 +1,9 @@
 <template>
   <div id="maps" class="page-shell">
     <div class="text-center mb-8 lg:mb-10">
-      <p class="section-kicker mb-3">Travel</p>
+      <p class="section-kicker mb-3">// GEO.TRACE</p>
       <h3 class="font-display text-3xl lg:text-5xl text-ink mb-3">Visited Countries</h3>
-      <p class="text-muted text-base lg:text-lg max-w-2xl mx-auto">
+      <p class="font-mono text-sm text-muted max-w-2xl mx-auto">
         Places I've been — click a country card to drill into cities and zoom the map.
       </p>
     </div>
@@ -83,9 +83,9 @@
         <div class="col-span-full mb-4">
           <button 
             @click="onBackToCountries"
-            class="flex items-center px-4 py-2 bg-accent text-white rounded-full hover:bg-accent-deep transition-colors"
+            class="cyber-btn"
           >
-            <span class="material-icons mr-2">arrow_back</span>
+            <span class="material-icons text-sm">arrow_back</span>
             Back to Countries
           </button>
         </div>

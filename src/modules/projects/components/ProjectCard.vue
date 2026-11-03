@@ -1,5 +1,5 @@
 <template>
-  <div class="surface-card overflow-hidden rounded-2xl transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-28px_rgba(16,42,42,0.55)] flex flex-col h-full">
+  <div class="surface-card overflow-hidden transition duration-300 hover:shadow-[0_0_28px_rgba(0,240,255,0.22)] flex flex-col h-full">
     <div
       v-if="project.image"
       class="h-40 sm:h-48 flex-shrink-0 overflow-hidden"
@@ -36,11 +36,11 @@
             <div
               v-if="platform.id === 'ios'"
               class="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg transition-colors"
-              :class="project.platforms[platform.id] ? 'bg-ink' : 'bg-mist/70'"
+              :class="project.platforms[platform.id] ? 'bg-accent text-paper' : 'bg-mist/70 text-line'"
             >
               <svg
                 class="h-4 w-4 sm:h-[1.125rem] sm:w-[1.125rem] transition-colors"
-                :class="project.platforms[platform.id] ? 'text-white' : 'text-line'"
+                :class="project.platforms[platform.id] ? 'text-paper' : 'text-line'"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
@@ -69,10 +69,10 @@
           :href="project.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center rounded-full border border-accent px-4 py-2 text-sm font-semibold text-accent hover:bg-accent hover:text-white transition shrink-0"
+          class="cyber-btn shrink-0 !px-3 !py-2"
         >
           Visit
-          <span class="material-icons ml-1 text-sm">open_in_new</span>
+          <span class="material-icons text-sm">open_in_new</span>
         </a>
       </div>
     </div>
@@ -90,6 +90,6 @@ defineProps({
 const platformOptions = [
   { id: 'web', label: 'Web', icon: 'language', activeClass: 'text-accent' },
   { id: 'ios', label: 'iOS' },
-  { id: 'android', label: 'Android', icon: 'android', activeClass: 'text-green-600' }
+  { id: 'android', label: 'Android', icon: 'android', activeClass: 'text-matrix' }
 ];
 </script>

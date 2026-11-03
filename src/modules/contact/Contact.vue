@@ -1,9 +1,9 @@
 <template>
   <div id="contact" class="page-shell max-w-4xl">
     <div class="text-center mb-8">
-      <p class="section-kicker mb-3">Contact</p>
+      <p class="section-kicker mb-3">// INCOMING.SIGNAL</p>
       <h2 class="font-display text-3xl lg:text-5xl text-ink mb-3">Get in Touch</h2>
-      <p class="text-muted">Collaborations, roles, or a quick hello — message me here or on LinkedIn.</p>
+      <p class="font-mono text-sm text-muted">Collaborations, roles, or a quick hello — transmit a message.</p>
       <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm">
         <a href="mailto:evertonbuzzi@gmail.com" class="text-accent font-medium hover:underline">evertonbuzzi@gmail.com</a>
         <a href="https://www.linkedin.com/in/evertonbuzzi" target="_blank" rel="noopener noreferrer" class="text-accent font-medium hover:underline">LinkedIn</a>
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="surface-card rounded-2xl p-5 lg:p-8">
+    <div class="surface-card p-5 lg:p-8">
       <form
         name="contact"
         method="POST"
@@ -27,18 +27,18 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
           <div>
-            <label for="name" class="mb-1.5 block text-sm font-medium text-ink">Your name</label>
+            <label for="name" class="mb-1.5 block font-mono text-xs uppercase tracking-[0.16em] text-muted">Your name</label>
             <input
               id="name"
               v-model="name"
               type="text"
               name="name"
               required
-              class="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+              class="w-full border border-line bg-paper px-4 py-3 font-mono text-sm text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
             />
           </div>
           <div>
-            <label for="email" class="mb-1.5 block text-sm font-medium text-ink">Your e-mail</label>
+            <label for="email" class="mb-1.5 block font-mono text-xs uppercase tracking-[0.16em] text-muted">Your e-mail</label>
             <input
               id="email"
               v-model="email"
@@ -46,34 +46,34 @@
               name="email"
               required
               @blur="validate(email)"
-              class="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
-              :class="{ 'border-red-500 focus:ring-red-500': emailError }"
+              class="w-full border border-line bg-paper px-4 py-3 font-mono text-sm text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+              :class="{ 'border-magenta focus:ring-magenta': emailError }"
             />
-            <span v-show="emailError" class="mt-1 block text-sm text-red-600">{{ emailError }}</span>
+            <span v-show="emailError" class="mt-1 block text-sm text-magenta">{{ emailError }}</span>
           </div>
         </div>
 
         <div>
-          <label for="company" class="mb-1.5 block text-sm font-medium text-ink">Company name</label>
+          <label for="company" class="mb-1.5 block font-mono text-xs uppercase tracking-[0.16em] text-muted">Company name</label>
           <input
             id="company"
             v-model="company"
             type="text"
             name="company"
             required
-            class="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+            class="w-full border border-line bg-paper px-4 py-3 font-mono text-sm text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
           />
         </div>
 
         <div>
-          <label for="message" class="mb-1.5 block text-sm font-medium text-ink">Your message</label>
+          <label for="message" class="mb-1.5 block font-mono text-xs uppercase tracking-[0.16em] text-muted">Your message</label>
           <textarea
             id="message"
             v-model="message"
             name="message"
             rows="5"
             required
-            class="w-full resize-none rounded-xl border border-line bg-paper px-4 py-3 text-sm focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+            class="w-full resize-none border border-line bg-paper px-4 py-3 font-mono text-sm text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
           />
         </div>
 
@@ -81,9 +81,9 @@
           <button
             type="submit"
             :disabled="isSubmitting"
-            class="rounded-full bg-accent px-8 py-3 text-sm font-semibold text-white transition hover:bg-accent-deep disabled:cursor-not-allowed disabled:opacity-50"
+            class="cyber-btn disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+            {{ isSubmitting ? 'Transmitting...' : 'Send Message' }}
           </button>
         </div>
 

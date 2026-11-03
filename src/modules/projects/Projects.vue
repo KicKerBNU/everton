@@ -1,10 +1,10 @@
 <template>
   <div id="projects" class="page-shell">
     <div class="text-center mb-10 lg:mb-14">
-      <p class="section-kicker mb-3">Work</p>
+      <p class="section-kicker mb-3">// DEPLOYED.NODES</p>
       <h2 class="font-display text-3xl lg:text-5xl text-ink mb-4">Projects</h2>
-      <p class="text-muted text-base lg:text-lg max-w-2xl mx-auto">
-        Products and open source I’ve built or contributed to — from AI finance tools to design systems.
+      <p class="font-mono text-sm text-muted max-w-2xl mx-auto">
+        Products and open source I’ve built — AI finance tools, design systems, and product interfaces.
       </p>
     </div>
 
@@ -20,27 +20,26 @@
         <div
           v-for="skill in skills"
           :key="skill.name"
-          class="surface-card rounded-2xl p-5 text-center transition hover:-translate-y-0.5"
+          class="surface-card p-5 text-center transition hover:shadow-[0_0_24px_rgba(0,240,255,0.2)]"
         >
           <div
-            class="mx-auto mb-3 flex h-12 w-12 lg:h-14 lg:w-14 items-center justify-center rounded-full"
-            :class="skill.bg"
+            class="mx-auto mb-3 flex h-12 w-12 lg:h-14 lg:w-14 items-center justify-center border border-line bg-accent/10"
           >
-            <span class="material-icons text-2xl lg:text-3xl" :class="skill.color">{{ skill.icon }}</span>
+            <span class="material-icons text-2xl lg:text-3xl text-accent">{{ skill.icon }}</span>
           </div>
-          <h4 class="font-semibold text-ink">{{ skill.name }}</h4>
-          <p class="text-xs lg:text-sm text-muted mt-1">{{ skill.subtitle }}</p>
+          <h4 class="font-display text-xs text-ink">{{ skill.name }}</h4>
+          <p class="font-mono text-[10px] uppercase tracking-[0.14em] text-muted mt-1">{{ skill.subtitle }}</p>
         </div>
       </div>
     </div>
 
-    <div class="rounded-2xl border border-line/70 bg-mist/40 p-6 lg:p-8">
-      <h3 class="font-display text-2xl text-ink text-center mb-6">Also in the toolkit</h3>
+    <div class="surface-card p-6 lg:p-8">
+      <h3 class="font-display text-xl text-ink text-center mb-6">Also in the toolkit</h3>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
         <div
           v-for="item in extras"
           :key="item"
-          class="rounded-xl bg-paper-elevated px-3 py-2.5 text-center text-sm font-medium text-ink shadow-sm"
+          class="border border-line bg-paper px-3 py-2.5 text-center font-mono text-xs uppercase tracking-[0.12em] text-ink-soft"
         >
           {{ item }}
         </div>

@@ -1,9 +1,9 @@
 <template>
   <div class="page-shell">
     <div class="text-center mb-10">
-      <p class="section-kicker mb-3">Library</p>
+      <p class="section-kicker mb-3">// MEMORY.BANK</p>
       <h1 class="font-display text-3xl lg:text-5xl text-ink mb-3">Books I've Read</h1>
-      <p class="text-muted text-base lg:text-lg max-w-2xl mx-auto">
+      <p class="font-mono text-sm text-muted max-w-2xl mx-auto">
         Titles that shaped how I think about investing, product, systems, and life.
       </p>
     </div>
@@ -12,7 +12,7 @@
       <div
         v-for="book in sortedBooks"
         :key="book.id"
-        class="surface-card rounded-2xl overflow-hidden flex flex-col h-full transition hover:-translate-y-1"
+          class="surface-card overflow-hidden flex flex-col h-full transition hover:shadow-[0_0_24px_rgba(0,240,255,0.18)]"
       >
         <div class="flex w-full items-center justify-center bg-gradient-to-br from-mist/50 to-accent-soft/40 flex-shrink-0 border-b border-line/60 py-6">
           <img
@@ -54,7 +54,7 @@
       </div>
     </div>
 
-    <div class="mt-12 surface-card rounded-2xl p-6 lg:p-8">
+    <div class="mt-12 surface-card p-6 lg:p-8">
       <h2 class="font-display text-xl text-ink mb-6">Reading Statistics</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="text-center">
@@ -215,9 +215,9 @@ const sortedBooks = computed(() => {
 // Helper functions
 const getStatusClass = (status) => {
   if (status === 'Reading') {
-    return 'bg-amber-100 text-amber-900';
+    return 'border border-magenta/50 bg-magenta/10 text-magenta';
   }
-  return 'bg-accent-soft text-accent-deep';
+  return 'border border-accent/40 bg-accent/10 text-accent';
 };
 
 const getStatusDotClass = (status) => {
